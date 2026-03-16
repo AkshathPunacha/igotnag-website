@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" /><meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Track My Order | IGötNag</title>
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;600;700;800;900&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="../style.css" /><link rel="stylesheet" href="pages.css" />
+</head>
+<body>
+  <div class="ticker-bar"><div class="ticker-track"><span class="ticker-item">🎁 <strong>igotnag.com</strong> — Not Another Greeting Card!</span><span class="ticker-item">Free UK delivery on orders over £30 🚚</span><span class="ticker-item">🎁 <strong>igotnag.com</strong> — Not Another Greeting Card!</span></div></div>
+  <header class="site-header" id="site-header"><div class="header-inner"><a href="../index.html" class="logo-link"><div class="logo-text"><span class="logo-ig">IG</span><span class="logo-ot">öt</span><span class="logo-nag">NAG</span></div></a><nav class="header-actions"><a href="shop.html" class="nav-link">Shop</a><a href="../index.html" class="cart-btn">🛒 <span class="cart-count">0</span></a></nav></div></header>
+  <div class="page-breadcrumb"><div class="container"><a href="../index.html">Home</a> › Track My Order</div></div>
+  <section class="page-hero"><div class="container"><h1>Track My Order 📦</h1><p>Enter your order number and email to track your gift.</p></div></section>
+  <main style="padding:60px 0;"><div class="container" style="max-width:560px;">
+    <div style="background:white;border:2px solid var(--border);border-radius:var(--radius-xl);padding:40px;box-shadow:var(--shadow-md);">
+      <h2 style="font-size:22px;font-weight:800;margin-bottom:28px;">Find Your Order</h2>
+      <div class="form-field"><label for="track-order">Order Number *</label><input type="text" id="track-order" placeholder="e.g. NAG-12345" /></div>
+      <div class="form-field" style="margin-top:16px;"><label for="track-email">Email Address *</label><input type="email" id="track-email" placeholder="your@email.com" /></div>
+      <button class="btn-primary" style="width:100%;margin-top:20px;" onclick="trackOrder()">Track My Order 🔍</button>
+      <div id="track-result" style="display:none;margin-top:20px;padding:20px;background:var(--light-bg);border-radius:var(--radius-lg);"></div>
+    </div>
+    <div style="text-align:center;margin-top:24px;color:var(--text-muted);font-size:14px;"><p>📧 Can't find your order? <a href="contact.html" style="color:var(--primary);font-weight:700;">Contact us</a> and we'll help right away.</p></div>
+  </div></main>
+  <footer class="site-footer"><div class="container"><div class="footer-bottom" style="border-top:none;padding-top:32px;"><p>© 2025 IGötNag. <a href="../index.html">Back to Home</a></p><p class="footer-nag-msg"><span class="nag-n">N</span>ot <span class="nag-a">A</span>nother <span class="nag-gword">G</span>reeting-card 🚫</p></div></div></footer>
+  <script>
+    const h=document.getElementById('site-header');window.addEventListener('scroll',()=>{if(window.scrollY>40)h?.classList.add('scrolled');else h?.classList.remove('scrolled')},{passive:true});
+    function trackOrder(){const r=document.getElementById('track-result');r.style.display='block';r.innerHTML='<p style="font-weight:700;color:var(--secondary)">📦 Order Found!</p><p style="margin-top:8px;color:var(--text-muted)">Please check your email for the tracking link sent at dispatch. If you haven\'t received it, <a href="contact.html" style="color:var(--primary)">contact us</a>.</p>';}
+  </script>
+</body>
+</html>

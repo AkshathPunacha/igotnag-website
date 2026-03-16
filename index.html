@@ -1,0 +1,767 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>IGötNag – Not Another Greeting Card | Gifts for Every Occasion</title>
+  <meta name="description" content="IGötNag – Because life's too short for boring greeting cards! Discover unique, personalised gifts for birthdays, anniversaries, Mother's Day, Valentine's and every occasion. Shop UK's best gift destination." />
+  <meta name="keywords" content="gifts UK, personalised gifts, birthday gifts, anniversary gifts, not a greeting card, igotnag, unique gifts" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800;900&family=Pacifico&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+  <!-- ======================== ANNOUNCEMENT TICKER ======================== -->
+  <div class="ticker-bar" id="ticker-bar">
+    <div class="ticker-track" id="ticker-track">
+      <span class="ticker-item">What did you get for Mother's Day? <strong>igotnag.com</strong> 🎁</span>
+      <span class="ticker-item nag-red">Not <span class="nag-letters">N</span>ot <span class="nag-letters">A</span>ny <span class="nag-letters">G</span>reeting-card 🚫</span>
+      <span class="ticker-item">What did you get for Father's Day? <strong>igotnag.com</strong> 🎁</span>
+      <span class="ticker-item">What did you get for your Valentine? <strong>igotnag.com</strong> 🎁</span>
+      <span class="ticker-item nag-red">Not <span class="nag-letters">N</span>ot <span class="nag-letters">A</span>ny <span class="nag-letters">G</span>reeting-card 🚫</span>
+      <span class="ticker-item">What did you get for your birthday? <strong>igotnag.com</strong> 🎁</span>
+      <span class="ticker-item">What did you get for your Christmas? <strong>igotnag.com</strong> 🎁</span>
+      <span class="ticker-item nag-red">Not <span class="nag-letters">N</span>ot <span class="nag-letters">A</span>ny <span class="nag-letters">G</span>reeting-card 🚫</span>
+      <span class="ticker-item">What did you get for your brother? <strong>igotnag.com</strong> 🎁</span>
+      <span class="ticker-item">What did you get for your sister? <strong>igotnag.com</strong> 🎁</span>
+      <span class="ticker-item nag-red">Not <span class="nag-letters">N</span>ot <span class="nag-letters">A</span>ny <span class="nag-letters">G</span>reeting-card 🚫</span>
+      <span class="ticker-item">What did you get for your neighbour? <strong>igotnag.com</strong> 🎁</span>
+      <span class="ticker-item">What did you get for your son? <strong>igotnag.com</strong> 🎁</span>
+      <span class="ticker-item">What did you get for your daughter? <strong>igotnag.com</strong> 🎁</span>
+      <span class="ticker-item nag-red">Not <span class="nag-letters">N</span>ot <span class="nag-letters">A</span>ny <span class="nag-letters">G</span>reeting-card 🚫</span>
+      <span class="ticker-item">What did you get for your family? <strong>igotnag.com</strong> 🎁</span>
+      <span class="ticker-item">What did you get for your mum? <strong>igotnag.com</strong> 🎁</span>
+      <span class="ticker-item">What did you get for your dad? <strong>igotnag.com</strong> 🎁</span>
+      <span class="ticker-item nag-red">Not <span class="nag-letters">N</span>ot <span class="nag-letters">A</span>ny <span class="nag-letters">G</span>reeting-card 🚫</span>
+      <span class="ticker-item">What did you get for your dog? <strong>igotnag.com</strong> 🎁</span>
+      <span class="ticker-item">What did you get for your cat? <strong>igotnag.com</strong> 🎁</span>
+      <span class="ticker-item">What did you get for your girlfriend? <strong>igotnag.com</strong> 🎁</span>
+      <span class="ticker-item nag-red">Not <span class="nag-letters">N</span>ot <span class="nag-letters">A</span>ny <span class="nag-letters">G</span>reeting-card 🚫</span>
+      <span class="ticker-item">What did you get for your boyfriend? <strong>igotnag.com</strong> 🎁</span>
+      <!-- Duplicate for seamless loop -->
+      <span class="ticker-item">What did you get for Mother's Day? <strong>igotnag.com</strong> 🎁</span>
+      <span class="ticker-item nag-red">Not <span class="nag-letters">N</span>ot <span class="nag-letters">A</span>ny <span class="nag-letters">G</span>reeting-card 🚫</span>
+      <span class="ticker-item">What did you get for Father's Day? <strong>igotnag.com</strong> 🎁</span>
+    </div>
+  </div>
+
+  <!-- ======================== STICKY HEADER ======================== -->
+  <header class="site-header" id="site-header">
+    <div class="header-inner">
+      <!-- Logo -->
+      <a href="index.html" class="logo-link" id="logo-link">
+        <img src="assets/logo.png" alt="IGötNag – Not Another Greeting Card" class="logo-img" id="logo-img" onerror="this.style.display='none'; document.getElementById('logo-text').style.display='flex';" />
+        <div class="logo-text" id="logo-text" style="display:none;">
+          <span class="logo-ig">IG</span><span class="logo-ot">öt</span><span class="logo-nag">NAG</span>
+        </div>
+      </a>
+
+      <!-- Search Bar -->
+      <div class="search-wrap" id="search-wrap">
+        <div class="search-box">
+          <input type="text" id="search-input" placeholder="Search for gifts... mugs, t-shirts, keyrings..." autocomplete="off" />
+          <button class="search-btn" id="search-btn" aria-label="Search">🔍</button>
+        </div>
+        <div class="search-suggestions" id="search-suggestions"></div>
+      </div>
+
+      <!-- Nav Actions -->
+      <nav class="header-actions">
+        <a href="#occasions" class="nav-link">Shop Occasions</a>
+        <a href="#categories" class="nav-link">Shop Products</a>
+        <a href="pages/about.html" class="nav-link">About</a>
+        <a href="pages/contact.html" class="nav-link">Contact</a>
+        <a href="#" class="icon-btn" id="wishlist-btn" aria-label="Wishlist" title="Wishlist">♡</a>
+        <a href="pages/cart.html" class="cart-btn" id="cart-btn" aria-label="Shopping Cart">
+          🛒 <span class="cart-count" id="cart-count">0</span>
+        </a>
+      </nav>
+
+      <!-- Mobile Menu Toggle -->
+      <button class="menu-toggle" id="menu-toggle" aria-label="Open menu">☰</button>
+    </div>
+
+    <!-- Mobile Nav -->
+    <nav class="mobile-nav" id="mobile-nav">
+      <a href="#occasions">Shop by Occasion</a>
+      <a href="#categories">Shop by Product</a>
+      <a href="#todays-special">Today's Special</a>
+      <a href="#birthday-facts">Birthday Facts</a>
+      <a href="pages/about.html">About Us</a>
+      <a href="pages/contact.html">Contact</a>
+    </nav>
+  </header>
+
+  <!-- ======================== HERO SECTION ======================== -->
+  <section class="hero" id="hero">
+    <div class="hero-slider" id="hero-slider">
+
+      <!-- Slide 1 -->
+      <div class="hero-slide active" style="background: linear-gradient(135deg, #ff6b9d 0%, #c44dff 50%, #ff8c42 100%);">
+        <div class="hero-content">
+          <div class="hero-mascots">
+            <img src="assets/mascots.png" alt="IGötNag mascots – pig and unicorn holding gifts" class="mascot-img" />
+          </div>
+          <div class="hero-text">
+            <p class="hero-eyebrow">🎁 Not Another Greeting Card!</p>
+            <h1 class="hero-headline">Shop <span class="highlight">Birthday Gifts</span><br/>They'll Actually Love</h1>
+            <p class="hero-sub">Because a card just doesn't cut it anymore.<br/>Choose something tangible, personal & unforgettable.</p>
+            <div class="hero-cta-row">
+              <a href="#occasions" class="btn-primary" id="hero-cta-occasions">Shop Birthday Gifts 🎂</a>
+              <a href="#categories" class="btn-outline" id="hero-cta-all">Shop All Occasions 🎉</a>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Slide 2 -->
+      <div class="hero-slide" style="background: linear-gradient(135deg, #ff8c42 0%, #ff6b9d 50%, #ffd700 100%);">
+        <div class="hero-content">
+          <div class="hero-text hero-text-center">
+            <p class="hero-eyebrow">❌ No Greeting Cards 🙈</p>
+            <h2 class="hero-headline">💰 Think Cards Are<br/><span class="highlight">a Waste of Money?</span></h2>
+            <p class="hero-sub">🎁 Want something tangible?<br/>💥 Just something <em>better</em> than a card!</p>
+            <div class="hero-cta-row">
+              <a href="#categories" class="btn-primary">Explore Gifts 🛍️</a>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Slide 3 -->
+      <div class="hero-slide" style="background: linear-gradient(135deg, #1a1a2e 0%, #16213e 50%, #0f3460 100%);">
+        <div class="hero-content">
+          <div class="hero-text hero-text-center">
+            <p class="hero-eyebrow">💬 No "Dear Sarah..." 😅</p>
+            <h2 class="hero-headline">The Gift That Speaks<br/><span class="highlight-gold">Louder Than Words</span></h2>
+            <p class="hero-sub">✔️ 100s of personalised gifts<br/>✔️ Delivered across the UK<br/>✔️ Customise Now – Name, Photo, Message</p>
+            <div class="hero-cta-row">
+              <a href="#personalised" class="btn-gold">Personalise Your Gift ✨</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Slider Controls -->
+    <div class="slider-controls">
+      <button class="slider-prev" id="slider-prev" aria-label="Previous slide">‹</button>
+      <div class="slider-dots" id="slider-dots">
+        <button class="dot active" data-slide="0" aria-label="Slide 1"></button>
+        <button class="dot" data-slide="1" aria-label="Slide 2"></button>
+        <button class="dot" data-slide="2" aria-label="Slide 3"></button>
+      </div>
+      <button class="slider-next" id="slider-next" aria-label="Next slide">›</button>
+    </div>
+  </section>
+
+  <!-- ======================== TRUST BADGES ======================== -->
+  <section class="trust-bar">
+    <div class="container">
+      <div class="trust-badges">
+        <div class="badge"><span class="badge-icon">🚚</span><div><strong>Free UK Delivery</strong><small>On orders over £30</small></div></div>
+        <div class="badge"><span class="badge-icon">⭐</span><div><strong>Verified Reviews</strong><small>Thousands of happy customers</small></div></div>
+        <div class="badge"><span class="badge-icon">🔒</span><div><strong>Secure Checkout</strong><small>SSL protected payments</small></div></div>
+        <div class="badge"><span class="badge-icon">🔄</span><div><strong>Easy Returns</strong><small>30-day return policy</small></div></div>
+        <div class="badge"><span class="badge-icon">🎁</span><div><strong>Gift Wrapping</strong><small>Free personalised wrapping</small></div></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ======================== SHOP BY OCCASION ======================== -->
+  <section class="section" id="occasions">
+    <div class="container">
+      <div class="section-header">
+        <h2 class="section-title">Shop by Occasion</h2>
+        <p class="section-sub">Every day is worth celebrating. Find the perfect gift for every moment.</p>
+      </div>
+      <div class="occasion-carousel-wrap">
+        <button class="carousel-prev" id="occ-prev" aria-label="Previous">‹</button>
+        <div class="occasion-carousel" id="occasion-carousel">
+
+          <a href="pages/shop.html?occasion=anniversary" class="occasion-card" id="occ-anniversary">
+            <div class="occasion-img-wrap">
+              <img src="assets/occasions/anniversary.png" alt="Anniversary Gifts" loading="lazy" />
+            </div>
+            <div class="occasion-label">Anniversary 💕</div>
+          </a>
+
+          <a href="pages/shop.html?occasion=birthday" class="occasion-card" id="occ-birthday">
+            <div class="occasion-img-wrap">
+              <img src="assets/occasions/birthday.png" alt="Birthday Gifts" loading="lazy" />
+            </div>
+            <div class="occasion-label">Birthday 🎂</div>
+          </a>
+
+          <a href="pages/shop.html?occasion=christmas" class="occasion-card" id="occ-christmas">
+            <div class="occasion-img-wrap">
+              <img src="assets/occasions/christmas.png" alt="Christmas Gifts" loading="lazy" />
+            </div>
+            <div class="occasion-label">Christmas 🎄</div>
+          </a>
+
+          <a href="pages/shop.html?occasion=easter" class="occasion-card" id="occ-easter">
+            <div class="occasion-img-wrap">
+              <img src="assets/occasions/easter.png" alt="Easter Gifts" loading="lazy" />
+            </div>
+            <div class="occasion-label">Easter 🐣</div>
+          </a>
+
+          <a href="pages/shop.html?occasion=fathers-day" class="occasion-card" id="occ-fathers-day">
+            <div class="occasion-img-wrap">
+              <img src="assets/occasions/fathers_day.png" alt="Father's Day Gifts" loading="lazy" />
+            </div>
+            <div class="occasion-label">Father's Day 👨</div>
+          </a>
+
+          <a href="pages/shop.html?occasion=funny-gifts" class="occasion-card" id="occ-funny">
+            <div class="occasion-img-wrap">
+              <img src="assets/occasions/funny.png" alt="Funny Gifts" loading="lazy" />
+            </div>
+            <div class="occasion-label">Funny Gifts 😂</div>
+          </a>
+
+          <a href="pages/shop.html?occasion=graduation" class="occasion-card" id="occ-graduation">
+            <div class="occasion-img-wrap">
+              <img src="assets/occasions/graduation.png" alt="Graduation Gifts" loading="lazy" />
+            </div>
+            <div class="occasion-label">Graduation 🎓</div>
+          </a>
+
+          <a href="pages/shop.html?occasion=halloween" class="occasion-card" id="occ-halloween">
+            <div class="occasion-img-wrap">
+              <img src="assets/occasions/halloween.png" alt="Halloween Gifts" loading="lazy" />
+            </div>
+            <div class="occasion-label">Halloween 🎃</div>
+          </a>
+
+          <a href="pages/shop.html?occasion=mothers-day" class="occasion-card" id="occ-mothers-day">
+            <div class="occasion-img-wrap">
+              <img src="assets/occasions/mothers_day.png" alt="Mother's Day Gifts" loading="lazy" />
+            </div>
+            <div class="occasion-label">Mother's Day 💐</div>
+          </a>
+
+          <a href="pages/shop.html?occasion=new-baby" class="occasion-card" id="occ-new-baby">
+            <div class="occasion-img-wrap">
+              <img src="assets/occasions/new_baby.png" alt="New Baby Gifts" loading="lazy" />
+            </div>
+            <div class="occasion-label">New Baby 👶</div>
+          </a>
+
+          <a href="pages/shop.html?occasion=new-year" class="occasion-card" id="occ-new-year">
+            <div class="occasion-img-wrap">
+              <img src="assets/occasions/new_year.png" alt="New Year Gifts" loading="lazy" />
+            </div>
+            <div class="occasion-label">New Year 🥂</div>
+          </a>
+
+          <a href="pages/shop.html?occasion=retirement" class="occasion-card" id="occ-retirement">
+            <div class="occasion-img-wrap">
+              <img src="assets/occasions/retirement.png" alt="Retirement Gifts" loading="lazy" />
+            </div>
+            <div class="occasion-label">Retirement 🏖️</div>
+          </a>
+
+          <a href="pages/shop.html?occasion=valentines" class="occasion-card" id="occ-valentines">
+            <div class="occasion-img-wrap">
+              <img src="assets/occasions/valentines.png" alt="Valentine's Day Gifts" loading="lazy" />
+            </div>
+            <div class="occasion-label">Valentine's Day ❤️</div>
+          </a>
+
+          <a href="pages/shop.html?occasion=wedding" class="occasion-card" id="occ-wedding">
+            <div class="occasion-img-wrap">
+              <img src="assets/occasions/wedding.png" alt="Wedding Gifts" loading="lazy" />
+            </div>
+            <div class="occasion-label">Wedding 💍</div>
+          </a>
+
+        </div>
+        <button class="carousel-next" id="occ-next" aria-label="Next">›</button>
+      </div>
+    </div>
+  </section>
+
+  <!-- ======================== TAGLINE MARQUEE ======================== -->
+  <div class="tagline-bar">
+    <div class="tagline-inner">
+      <span>🐷 "What did you get for your birthday?"</span>
+      <span class="tagline-answer">🦄 "I Got <span class="nag-word">NAG</span>" — igotnag.com</span>
+      <span>🐷 "What did you get for Mother's Day?"</span>
+      <span class="tagline-answer">🦄 "I Got <span class="nag-word">NAG</span>" — igotnag.com</span>
+      <span>🐷 "What did you get for Valentine's?"</span>
+      <span class="tagline-answer">🦄 "I Got <span class="nag-word">NAG</span>" — igotnag.com</span>
+      <span>🐷 "What did you get for your birthday?"</span>
+      <span class="tagline-answer">🦄 "I Got <span class="nag-word">NAG</span>" — igotnag.com</span>
+      <span>🐷 "What did you get for Mother's Day?"</span>
+      <span class="tagline-answer">🦄 "I Got <span class="nag-word">NAG</span>" — igotnag.com</span>
+    </div>
+  </div>
+
+  <!-- ======================== SHOP BY PRODUCT CATEGORY ======================== -->
+  <section class="section section-light" id="categories">
+    <div class="container">
+      <div class="section-header">
+        <h2 class="section-title">Shop by Product</h2>
+        <p class="section-sub">Pick the perfect type of gift, no matter the occasion.</p>
+      </div>
+      <div class="product-grid" id="product-grid">
+
+        <a href="pages/shop.html?cat=mugs" class="product-cat-card" id="cat-mugs">
+          <div class="pcat-img-wrap">
+            <img src="assets/products/mugs.png" alt="Personalised Mugs" loading="lazy" />
+            <div class="pcat-overlay"><span>Shop Now →</span></div>
+          </div>
+          <div class="pcat-info">
+            <h3>Personalised Mugs ☕</h3>
+            <p>Custom printed, names, photos & more</p>
+          </div>
+        </a>
+
+        <a href="pages/shop.html?cat=tshirts" class="product-cat-card" id="cat-tshirts">
+          <div class="pcat-img-wrap">
+            <img src="assets/products/tshirts.png" alt="Custom T-Shirts" loading="lazy" />
+            <div class="pcat-overlay"><span>Shop Now →</span></div>
+          </div>
+          <div class="pcat-info">
+            <h3>Custom T-Shirts 👕</h3>
+            <p>Funny, personalised tees for everyone</p>
+          </div>
+        </a>
+
+        <a href="pages/shop.html?cat=cushions" class="product-cat-card" id="cat-cushions">
+          <div class="pcat-img-wrap">
+            <img src="assets/products/cushions.png" alt="Custom Cushions" loading="lazy" />
+            <div class="pcat-overlay"><span>Shop Now →</span></div>
+          </div>
+          <div class="pcat-info">
+            <h3>Custom Cushions 🛋️</h3>
+            <p>Personalised cushions for the home</p>
+          </div>
+        </a>
+
+        <a href="pages/shop.html?cat=keyrings" class="product-cat-card" id="cat-keyrings">
+          <div class="pcat-img-wrap">
+            <img src="assets/products/keyrings.png" alt="Keyrings & Badges" loading="lazy" />
+            <div class="pcat-overlay"><span>Shop Now →</span></div>
+          </div>
+          <div class="pcat-info">
+            <h3>Keyrings & Badges 🔑</h3>
+            <p>Novelty accessories & personalised pins</p>
+          </div>
+        </a>
+
+        <a href="pages/shop.html?cat=accessories" class="product-cat-card" id="cat-accessories">
+          <div class="pcat-img-wrap">
+            <img src="assets/products/accessories.png" alt="Fun Accessories" loading="lazy" />
+            <div class="pcat-overlay"><span>Shop Now →</span></div>
+          </div>
+          <div class="pcat-info">
+            <h3>Fun Accessories 🕶️</h3>
+            <p>Sunglasses, beer glasses & novelty items</p>
+          </div>
+        </a>
+
+        <a href="pages/shop.html?cat=caps" class="product-cat-card" id="cat-caps">
+          <div class="pcat-img-wrap">
+            <img src="assets/products/caps.png" alt="Custom Caps & Hats" loading="lazy" />
+            <div class="pcat-overlay"><span>Shop Now →</span></div>
+          </div>
+          <div class="pcat-info">
+            <h3>Caps & Hats 🧢</h3>
+            <p>Custom embroidered caps & hats</p>
+          </div>
+        </a>
+
+        <a href="pages/shop.html?cat=scarves" class="product-cat-card" id="cat-scarves">
+          <div class="pcat-img-wrap">
+            <img src="assets/products/scarves.png" alt="Scarves & Accessories" loading="lazy" />
+            <div class="pcat-overlay"><span>Shop Now →</span></div>
+          </div>
+          <div class="pcat-info">
+            <h3>Scarves & Wraps 🧣</h3>
+            <p>Luxury scarves for all occasions</p>
+          </div>
+        </a>
+
+        <a href="pages/shop.html?cat=balloons" class="product-cat-card" id="cat-balloons">
+          <div class="pcat-img-wrap">
+            <img src="assets/products/balloons.png" alt="Balloons & Flowers" loading="lazy" />
+            <div class="pcat-overlay"><span>Shop Now →</span></div>
+          </div>
+          <div class="pcat-info">
+            <h3>Balloons & Flowers 🎈</h3>
+            <p>Beautiful arrangements delivered fresh</p>
+          </div>
+        </a>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ======================== FEATURED / PERSONALISED SECTION ======================== -->
+  <section class="section section-dark" id="personalised">
+    <div class="container">
+      <div class="section-header">
+        <p class="section-eyebrow">✨ Our Bestsellers</p>
+        <h2 class="section-title light">Featured Personalised Gifts</h2>
+        <p class="section-sub light">Customise with a name, photo or message. Make it truly theirs.</p>
+      </div>
+
+      <div class="featured-grid">
+
+        <div class="featured-card" id="feat-mug-1">
+          <div class="featured-img-wrap">
+            <img src="assets/products/mugs.png" alt="Personalised Name Mug" loading="lazy" />
+            <div class="featured-badge">Bestseller ⭐</div>
+          </div>
+          <div class="featured-info">
+            <h3>Personalised Name Mug</h3>
+            <p>Add any name or message</p>
+            <div class="featured-price">from £12.99</div>
+            <div class="featured-actions">
+              <a href="pages/product.html?id=mug-name" class="btn-customise" id="btn-customise-mug">Customise Now ✨</a>
+              <button class="btn-heart" id="heart-mug-1" aria-label="Add to wishlist">♡</button>
+            </div>
+          </div>
+        </div>
+
+        <div class="featured-card" id="feat-tshirt-1">
+          <div class="featured-img-wrap">
+            <img src="assets/products/tshirts.png" alt="Funny Birthday T-Shirt" loading="lazy" />
+            <div class="featured-badge new-badge">New In 🌟</div>
+          </div>
+          <div class="featured-info">
+            <h3>Funny Birthday T-Shirt</h3>
+            <p>Personalised with age & name</p>
+            <div class="featured-price">from £18.99</div>
+            <div class="featured-actions">
+              <a href="pages/product.html?id=tshirt-bday" class="btn-customise" id="btn-customise-tshirt">Customise Now ✨</a>
+              <button class="btn-heart" id="heart-tshirt-1" aria-label="Add to wishlist">♡</button>
+            </div>
+          </div>
+        </div>
+
+        <div class="featured-card" id="feat-cushion-1">
+          <div class="featured-img-wrap">
+            <img src="assets/products/cushions.png" alt="Custom Photo Cushion" loading="lazy" />
+            <div class="featured-badge sale-badge">Sale 🔥</div>
+          </div>
+          <div class="featured-info">
+            <h3>Custom Photo Cushion</h3>
+            <p>Upload your favourite photo</p>
+            <div class="featured-price"><span class="price-was">£29.99</span> from £22.99</div>
+            <div class="featured-actions">
+              <a href="pages/product.html?id=cushion-photo" class="btn-customise" id="btn-customise-cushion">Customise Now ✨</a>
+              <button class="btn-heart" id="heart-cushion-1" aria-label="Add to wishlist">♡</button>
+            </div>
+          </div>
+        </div>
+
+        <div class="featured-card" id="feat-keyring-1">
+          <div class="featured-img-wrap">
+            <img src="assets/products/keyrings.png" alt="Personalised Keyring" loading="lazy" />
+          </div>
+          <div class="featured-info">
+            <h3>Personalised Keyring</h3>
+            <p>Engraved with name or date</p>
+            <div class="featured-price">from £8.99</div>
+            <div class="featured-actions">
+              <a href="pages/product.html?id=keyring-engraved" class="btn-customise" id="btn-customise-keyring">Customise Now ✨</a>
+              <button class="btn-heart" id="heart-keyring-1" aria-label="Add to wishlist">♡</button>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ======================== TODAY'S SPECIAL DAY ======================== -->
+  <section class="section" id="todays-special">
+    <div class="container">
+      <div class="section-header">
+        <p class="section-eyebrow">📅 Did You Know?</p>
+        <h2 class="section-title">Today is <span id="today-date-display"></span></h2>
+        <p class="section-sub">Every day has something special. Celebrate it with a gift!</p>
+      </div>
+
+      <div class="todays-facts-wrap">
+        <div class="special-day-card" id="special-day-card">
+          <div class="special-day-icon">🎉</div>
+          <div class="special-day-info">
+            <h3 id="special-day-name">Loading today's special day...</h3>
+            <p id="special-day-desc">Discover what makes today unique!</p>
+            <a href="#occasions" class="btn-primary btn-sm" id="special-day-shop">Shop Gifts for Today →</a>
+          </div>
+        </div>
+
+        <div class="born-today-card" id="born-today-card">
+          <h3>🌟 Notable People Born This Month</h3>
+          <div class="born-list" id="born-list">
+            <!-- JS populated -->
+          </div>
+        </div>
+
+        <div class="history-facts-card">
+          <h3>📖 This Month in History</h3>
+          <ul class="history-list" id="history-list">
+            <!-- JS populated -->
+          </ul>
+        </div>
+      </div>
+
+      <!-- All Special Days Calendar Strip -->
+      <div class="special-days-strip">
+        <h3>🗓️ Special Days This Month</h3>
+        <div class="days-scroll" id="days-scroll">
+          <!-- JS populated -->
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ======================== BIRTHDAY FACTS ======================== -->
+  <section class="section section-gradient" id="birthday-facts">
+    <div class="container">
+      <div class="section-header">
+        <p class="section-eyebrow">🎂 Fun Facts</p>
+        <h2 class="section-title light">Birthday Facts & Trivia</h2>
+        <p class="section-sub light">Share your birthday with someone amazing?</p>
+      </div>
+      <div class="facts-ticker-wrap">
+        <div class="facts-ticker" id="facts-ticker">
+          <div class="fact-card">🎵 Elvis Presley was born on <strong>8th January 1935</strong></div>
+          <div class="fact-card">✍️ Virginia Woolf was born on <strong>25th January 1882</strong></div>
+          <div class="fact-card">📚 JRR Tolkien was born on <strong>3rd January 1892</strong></div>
+          <div class="fact-card">✈️ Bessie Coleman was born on <strong>26th January 1892</strong></div>
+          <div class="fact-card">✊ Martin Luther King Jr. was born on <strong>15th January 1929</strong></div>
+          <div class="fact-card">🌹 The first Valentine's Day card was sent in <strong>1415</strong></div>
+          <div class="fact-card">🎂 "Happy Birthday to You" is the most recognised song in English</div>
+          <div class="fact-card">🌍 Roughly <strong>17.8 million</strong> people share your exact birthday</div>
+          <div class="fact-card">🎁 The average UK person receives <strong>£120</strong> in birthday gifts</div>
+          <div class="fact-card">🦄 Unicorns are Scotland's national animal — magical like your gift!</div>
+        </div>
+      </div>
+
+      <!-- Birthday Finder -->
+      <div class="birthday-finder" id="birthday-finder">
+        <h3>🎂 Find Out Who Shares Your Birthday!</h3>
+        <div class="bday-form">
+          <input type="date" id="bday-input" class="bday-date-input" aria-label="Enter your birthday" />
+          <button class="btn-primary" id="bday-search-btn">Find My Birthday Twin 🌟</button>
+        </div>
+        <div class="bday-result" id="bday-result"></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ======================== NAG MANIFESTO BANNER ======================== -->
+  <section class="manifesto-section">
+    <div class="manifesto-inner">
+      <div class="manifesto-content">
+        <div class="manifesto-icon">🚫🎴</div>
+        <h2>We Said <span class="manifesto-red">NO</span> to Greeting Cards.</h2>
+        <div class="manifesto-points">
+          <div class="manifesto-point">❌ No Greeting Cards 🙉🙈🙊</div>
+          <div class="manifesto-point">🎁 Only Real Gifts 😍💕</div>
+          <div class="manifesto-point">💬 No "Dear Sarah..." 😅</div>
+          <div class="manifesto-point">💥 Just Something Better Than a Card 👍</div>
+        </div>
+        <p class="manifesto-nag"><span class="nag-n">N</span>ot <span class="nag-a">A</span>nother <span class="nag-gword">G</span>reeting-card</p>
+        <a href="#categories" class="btn-white" id="manifesto-cta">Show Me Real Gifts 🎁</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ======================== HOW IT WORKS ======================== -->
+  <section class="section section-light" id="how-it-works">
+    <div class="container">
+      <div class="section-header">
+        <h2 class="section-title">How It Works</h2>
+        <p class="section-sub">Getting the perfect gift is this simple.</p>
+      </div>
+      <div class="steps-row">
+        <div class="step-card" id="step-1">
+          <div class="step-num">1</div>
+          <div class="step-icon">🔍</div>
+          <h3>Find Your Gift</h3>
+          <p>Browse by occasion, product type, or use our search to find the perfect gift.</p>
+        </div>
+        <div class="step-arrow">→</div>
+        <div class="step-card" id="step-2">
+          <div class="step-num">2</div>
+          <div class="step-icon">✨</div>
+          <h3>Personalise It</h3>
+          <p>Add a name, photo, message or custom design to make it uniquely theirs.</p>
+        </div>
+        <div class="step-arrow">→</div>
+        <div class="step-card" id="step-3">
+          <div class="step-num">3</div>
+          <div class="step-icon">🚚</div>
+          <h3>We Deliver</h3>
+          <p>Fast UK delivery, beautifully packaged. Sometimes even next day!</p>
+        </div>
+        <div class="step-arrow">→</div>
+        <div class="step-card" id="step-4">
+          <div class="step-num">4</div>
+          <div class="step-icon">🥳</div>
+          <h3>They Celebrate!</h3>
+          <p>Watch their face light up with a gift that shows you really care.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ======================== REVIEWS ======================== -->
+  <section class="section" id="reviews">
+    <div class="container">
+      <div class="section-header">
+        <h2 class="section-title">What Our Customers Say</h2>
+        <p class="section-sub">Real people. Real gifts. Real smiles. ⭐⭐⭐⭐⭐</p>
+      </div>
+      <div class="reviews-grid">
+        <div class="review-card" id="review-1">
+          <div class="review-stars">⭐⭐⭐⭐⭐</div>
+          <p class="review-text">"Absolutely loved ordering from IGötNag! Got a personalised mug for my mum's birthday and she cried happy tears. So much better than a boring card!"</p>
+          <div class="review-author">– Sarah M., London</div>
+        </div>
+        <div class="review-card" id="review-2">
+          <div class="review-stars">⭐⭐⭐⭐⭐</div>
+          <p class="review-text">"Ordered a custom t-shirt for my dad's retirement. Arrived perfectly wrapped and he wore it all day. The quality is brilliant!"</p>
+          <div class="review-author">– James T., Manchester</div>
+        </div>
+        <div class="review-card" id="review-3">
+          <div class="review-stars">⭐⭐⭐⭐⭐</div>
+          <p class="review-text">"Finally a site that doesn't push greeting cards at you. Every gift here feels special and personal. Will definitely be back for Christmas!"</p>
+          <div class="review-author">– Emma R., Birmingham</div>
+        </div>
+        <div class="review-card" id="review-4">
+          <div class="review-stars">⭐⭐⭐⭐⭐</div>
+          <p class="review-text">"Brilliant experience from start to finish. The personalised cushion was stunning. Delivery was fast and packaging was gorgeous. 10/10!"</p>
+          <div class="review-author">– Priya K., Leicester</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ======================== NEWSLETTER ======================== -->
+  <section class="newsletter-section">
+    <div class="container">
+      <div class="newsletter-inner">
+        <div class="newsletter-text">
+          <h2>🎁 Get Exclusive Gift Ideas & Deals</h2>
+          <p>Join thousands of savvy gift-givers. Get first access to new products, seasonal gifts & exclusive discounts.</p>
+        </div>
+        <form class="newsletter-form" id="newsletter-form" novalidate>
+          <input type="email" id="newsletter-email" placeholder="Enter your email address..." required />
+          <button type="submit" class="btn-primary" id="newsletter-submit">Subscribe 🎉</button>
+        </form>
+        <p class="newsletter-note">No spam. Unsubscribe anytime. We hate boring emails (and greeting cards).</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ======================== FOOTER ======================== -->
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-grid">
+
+        <div class="footer-col footer-brand">
+          <div class="footer-logo">
+            <span class="logo-ig">IG</span><span class="logo-ot">öt</span><span class="logo-nag">NAG</span>
+          </div>
+          <p class="footer-tagline"><em>Not <span class="nag-n">N</span>ot <span class="nag-a">A</span>ny <span class="nag-gword">G</span>reeting-card</em></p>
+          <p class="footer-desc">The UK's home for unique, personalised gifts. Because life's too short for boring cards.</p>
+          <div class="social-links">
+            <a href="#" class="social-btn" id="social-instagram" aria-label="Instagram">📸</a>
+            <a href="#" class="social-btn" id="social-tiktok" aria-label="TikTok">🎵</a>
+            <a href="#" class="social-btn" id="social-twitter" aria-label="Twitter / X">🐦</a>
+            <a href="#" class="social-btn" id="social-facebook" aria-label="Facebook">👍</a>
+          </div>
+        </div>
+
+        <div class="footer-col">
+          <h4>Shop</h4>
+          <ul>
+            <li><a href="#occasions">Shop by Occasion</a></li>
+            <li><a href="#categories">Shop by Product</a></li>
+            <li><a href="pages/shop.html?cat=personalised">Personalised Gifts</a></li>
+            <li><a href="pages/shop.html?occasion=birthday">Birthday Gifts</a></li>
+            <li><a href="pages/shop.html?occasion=mothers-day">Mother's Day</a></li>
+            <li><a href="pages/shop.html?occasion=fathers-day">Father's Day</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-col">
+          <h4>Help & Info</h4>
+          <ul>
+            <li><a href="pages/faq.html" id="footer-faq">FAQs</a></li>
+            <li><a href="pages/delivery.html" id="footer-delivery">Delivery Info</a></li>
+            <li><a href="pages/returns.html" id="footer-returns">Returns Policy</a></li>
+            <li><a href="pages/track.html" id="footer-track">Track My Order</a></li>
+            <li><a href="pages/contact.html" id="footer-contact">Contact Us</a></li>
+            <li><a href="pages/about.html" id="footer-about">About IGötNag</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-col">
+          <h4>Contact</h4>
+          <p>📧 <a href="mailto:info@igotnag.com">info@igotnag.com</a></p>
+          <p>🌐 <a href="https://igotnag.com">igotnag.com</a></p>
+          <p>🇬🇧 United Kingdom</p>
+          <div class="payment-icons">
+            <span title="Visa">💳 Visa</span>
+            <span title="Mastercard">💳 Mastercard</span>
+            <span title="PayPal">🅿️ PayPal</span>
+            <span title="Apple Pay">Apple Pay</span>
+          </div>
+        </div>
+
+      </div>
+
+      <div class="footer-bottom">
+        <p>© 2025 IGötNag. All rights reserved. | <a href="pages/privacy.html">Privacy Policy</a> | <a href="pages/terms.html">Terms & Conditions</a></p>
+        <p class="footer-nag-msg"><span class="nag-n">N</span>ot <span class="nag-a">A</span>nother <span class="nag-gword">G</span>reeting-card 🚫🎴</p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- ======================== MINI CART DRAWER ======================== -->
+  <div class="cart-drawer" id="cart-drawer">
+    <div class="cart-drawer-header">
+      <h3>Your Basket 🛒</h3>
+      <button class="cart-close" id="cart-close" aria-label="Close cart">✕</button>
+    </div>
+    <div class="cart-items" id="cart-items">
+      <div class="cart-empty">
+        <p>Your basket is empty</p>
+        <p>Add some amazing gifts! 🎁</p>
+        <a href="#categories" class="btn-primary" id="cart-shop-link">Start Shopping →</a>
+      </div>
+    </div>
+    <div class="cart-footer" id="cart-footer" style="display:none;">
+      <div class="cart-total">Total: <strong id="cart-total-price">£0.00</strong></div>
+      <a href="pages/checkout.html" class="btn-primary btn-full" id="cart-checkout-btn">Checkout →</a>
+    </div>
+  </div>
+  <div class="cart-overlay" id="cart-overlay"></div>
+
+  <!-- ======================== COOKIE NOTICE ======================== -->
+  <div class="cookie-notice" id="cookie-notice">
+    <p>🍪 We use cookies to give you the best gift-shopping experience. <a href="pages/privacy.html">Learn more</a></p>
+    <div class="cookie-btns">
+      <button class="btn-primary btn-sm" id="cookie-accept">Accept All</button>
+      <button class="btn-outline btn-sm" id="cookie-decline">Decline</button>
+    </div>
+  </div>
+
+  <!-- Back to Top -->
+  <button class="back-to-top" id="back-to-top" aria-label="Back to top">↑</button>
+
+  <script src="script.js"></script>
+</body>
+</html>

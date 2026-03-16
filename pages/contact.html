@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Contact Us | IGötNag – Not Another Greeting Card</title>
+  <meta name="description" content="Get in touch with IGötNag. We're here to help with your order, gift ideas, or any questions." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="../style.css" />
+  <link rel="stylesheet" href="pages.css" />
+</head>
+<body>
+
+  <div class="ticker-bar">
+    <div class="ticker-track">
+      <span class="ticker-item">🎁 <strong>igotnag.com</strong> — Not Another Greeting Card!</span>
+      <span class="ticker-item">Free UK delivery on orders over £30 🚚</span>
+      <span class="ticker-item">🎁 <strong>igotnag.com</strong> — Not Another Greeting Card!</span>
+      <span class="ticker-item">Free UK delivery on orders over £30 🚚</span>
+    </div>
+  </div>
+
+  <header class="site-header" id="site-header">
+    <div class="header-inner">
+      <a href="../index.html" class="logo-link">
+        <div class="logo-text"><span class="logo-ig">IG</span><span class="logo-ot">öt</span><span class="logo-nag">NAG</span></div>
+      </a>
+      <nav class="header-actions">
+        <a href="shop.html" class="nav-link">Shop</a>
+        <a href="about.html" class="nav-link">About</a>
+        <a href="faq.html" class="nav-link">FAQs</a>
+        <a href="../index.html" class="cart-btn">🛒 <span class="cart-count">0</span></a>
+      </nav>
+    </div>
+  </header>
+
+  <div class="page-breadcrumb">
+    <div class="container"><a href="../index.html">Home</a> › Contact Us</div>
+  </div>
+
+  <section class="page-hero">
+    <div class="container">
+      <h1>Get in Touch 💬</h1>
+      <p>We're a friendly team and love hearing from our customers. Drop us a message!</p>
+    </div>
+  </section>
+
+  <main class="contact-page">
+    <div class="container">
+      <div class="contact-grid">
+        <div class="contact-info">
+          <h2>We're Here to Help</h2>
+          <p>Whether you have a question about an order, need help finding the perfect gift, or just want to say hello — we'd love to hear from you.</p>
+
+          <div class="contact-detail">
+            <div class="contact-icon">📧</div>
+            <div><strong>Email Us</strong><span><a href="mailto:info@igotnag.com">info@igotnag.com</a></span></div>
+          </div>
+          <div class="contact-detail">
+            <div class="contact-icon">🌐</div>
+            <div><strong>Website</strong><span><a href="https://igotnag.com">igotnag.com</a></span></div>
+          </div>
+          <div class="contact-detail">
+            <div class="contact-icon">⏰</div>
+            <div><strong>Response Time</strong><span>We reply within 24 hours (usually much sooner!)</span></div>
+          </div>
+          <div class="contact-detail">
+            <div class="contact-icon">🇬🇧</div>
+            <div><strong>Location</strong><span>United Kingdom</span></div>
+          </div>
+
+          <div style="margin-top:32px;">
+            <h3 style="margin-bottom:16px;font-size:18px;font-weight:800;">Follow Us</h3>
+            <div class="social-links">
+              <a href="#" class="social-btn" id="contact-instagram" aria-label="Instagram">📸</a>
+              <a href="#" class="social-btn" id="contact-tiktok" aria-label="TikTok">🎵</a>
+              <a href="#" class="social-btn" id="contact-twitter" aria-label="Twitter">🐦</a>
+              <a href="#" class="social-btn" id="contact-facebook" aria-label="Facebook">👍</a>
+            </div>
+          </div>
+        </div>
+
+        <div class="contact-form-wrap" id="media-contact">
+          <h3>Send Us a Message 📩</h3>
+          <form class="contact-form" id="contact-form" novalidate>
+            <div class="form-row">
+              <div class="form-field">
+                <label for="contact-name">Your Name *</label>
+                <input type="text" id="contact-name" placeholder="e.g. Sarah Smith" required />
+              </div>
+              <div class="form-field">
+                <label for="contact-email">Email Address *</label>
+                <input type="email" id="contact-email" placeholder="your@email.com" required />
+              </div>
+            </div>
+            <div class="form-field">
+              <label for="contact-subject">Subject *</label>
+              <select id="contact-subject" required>
+                <option value="">Select a topic...</option>
+                <option>Order Question</option>
+                <option>Product Enquiry</option>
+                <option>Returns & Refunds</option>
+                <option>Delivery Query</option>
+                <option>Personalisation Help</option>
+                <option>Business / Partnership</option>
+                <option>Other</option>
+              </select>
+            </div>
+            <div class="form-field">
+              <label for="contact-order">Order Number (if applicable)</label>
+              <input type="text" id="contact-order" placeholder="e.g. NAG-12345" />
+            </div>
+            <div class="form-field">
+              <label for="contact-message">Your Message *</label>
+              <textarea id="contact-message" rows="5" placeholder="Tell us how we can help..." required></textarea>
+            </div>
+            <button type="submit" class="btn-primary" id="contact-submit" style="width:100%;">Send Message 📩</button>
+            <div id="contact-success" style="display:none;margin-top:16px;padding:16px;background:rgba(34,197,94,0.1);border:2px solid var(--success);border-radius:var(--radius-md);color:var(--success);font-weight:700;text-align:center;">
+              ✅ Thank you! We'll be in touch within 24 hours.
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-bottom" style="border-top:none; padding-top:32px;">
+        <p>© 2025 IGötNag. <a href="../index.html">Back to Home</a> | <a href="privacy.html">Privacy</a> | <a href="terms.html">Terms</a></p>
+        <p class="footer-nag-msg"><span class="nag-n">N</span>ot <span class="nag-a">A</span>nother <span class="nag-gword">G</span>reeting-card 🚫</p>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    const h = document.getElementById('site-header');
+    window.addEventListener('scroll', () => { if(window.scrollY>40) h?.classList.add('scrolled'); else h?.classList.remove('scrolled'); }, {passive:true});
+    document.getElementById('contact-form')?.addEventListener('submit', e => {
+      e.preventDefault();
+      const btn = document.getElementById('contact-submit');
+      const success = document.getElementById('contact-success');
+      btn.textContent = '⏳ Sending...';
+      btn.disabled = true;
+      setTimeout(() => {
+        btn.style.display = 'none';
+        success.style.display = 'block';
+      }, 1000);
+    });
+  </script>
+</body>
+</html>

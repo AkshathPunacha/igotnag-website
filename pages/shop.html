@@ -1,0 +1,383 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Shop Gifts | IGötNag – Not Another Greeting Card</title>
+  <meta name="description" content="Browse our full collection of personalised gifts by occasion or product type. Birthday, Anniversary, Mother's Day, Christmas and more — all at IGötNag." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="../style.css" />
+  <link rel="stylesheet" href="pages.css" />
+</head>
+<body>
+
+  <!-- TICKER -->
+  <div class="ticker-bar">
+    <div class="ticker-track">
+      <span class="ticker-item">🎁 <strong>igotnag.com</strong> — Not Another Greeting Card!</span>
+      <span class="ticker-item">Free UK delivery on orders over £30 🚚</span>
+      <span class="ticker-item nag-red">❌ No <span class="nag-letters">N</span>o <span class="nag-letters">A</span>nother <span class="nag-letters">G</span>reeting-card</span>
+      <span class="ticker-item">🎁 <strong>igotnag.com</strong> — Not Another Greeting Card!</span>
+      <span class="ticker-item">Free UK delivery on orders over £30 🚚</span>
+      <span class="ticker-item nag-red">❌ No <span class="nag-letters">N</span>o <span class="nag-letters">A</span>nother <span class="nag-letters">G</span>reeting-card</span>
+    </div>
+  </div>
+
+  <!-- HEADER -->
+  <header class="site-header" id="site-header">
+    <div class="header-inner">
+      <a href="../index.html" class="logo-link">
+        <div class="logo-text">
+          <span class="logo-ig">IG</span><span class="logo-ot">öt</span><span class="logo-nag">NAG</span>
+        </div>
+      </a>
+      <div class="search-wrap">
+        <div class="search-box">
+          <input type="text" id="search-input" placeholder="Search gifts..." />
+          <button class="search-btn">🔍</button>
+        </div>
+      </div>
+      <nav class="header-actions">
+        <a href="../index.html#occasions" class="nav-link">Occasions</a>
+        <a href="../index.html#categories" class="nav-link">Products</a>
+        <a href="contact.html" class="nav-link">Contact</a>
+        <a href="../index.html" class="cart-btn">🛒 <span class="cart-count">0</span></a>
+      </nav>
+      <button class="menu-toggle" id="menu-toggle">☰</button>
+    </div>
+    <nav class="mobile-nav" id="mobile-nav">
+      <a href="../index.html">Home</a>
+      <a href="shop.html">Shop</a>
+      <a href="contact.html">Contact</a>
+    </nav>
+  </header>
+
+  <!-- BREADCRUMB -->
+  <div class="page-breadcrumb">
+    <div class="container">
+      <a href="../index.html">Home</a> › <span id="breadcrumb-current">Shop</span>
+    </div>
+  </div>
+
+  <!-- SHOP PAGE -->
+  <main class="shop-page">
+    <div class="container">
+      <div class="shop-layout">
+
+        <!-- SIDEBAR FILTERS -->
+        <aside class="shop-sidebar">
+          <h3>Filter By</h3>
+
+          <div class="filter-group">
+            <h4>Occasion</h4>
+            <label><input type="checkbox" name="occ" value="birthday"> Birthday 🎂</label>
+            <label><input type="checkbox" name="occ" value="anniversary"> Anniversary 💕</label>
+            <label><input type="checkbox" name="occ" value="mothers-day"> Mother's Day 💐</label>
+            <label><input type="checkbox" name="occ" value="fathers-day"> Father's Day 👨</label>
+            <label><input type="checkbox" name="occ" value="christmas"> Christmas 🎄</label>
+            <label><input type="checkbox" name="occ" value="valentines"> Valentine's Day ❤️</label>
+            <label><input type="checkbox" name="occ" value="wedding"> Wedding 💍</label>
+            <label><input type="checkbox" name="occ" value="graduation"> Graduation 🎓</label>
+            <label><input type="checkbox" name="occ" value="new-baby"> New Baby 👶</label>
+            <label><input type="checkbox" name="occ" value="funny"> Funny Gifts 😂</label>
+            <label><input type="checkbox" name="occ" value="retirement"> Retirement 🏖️</label>
+            <label><input type="checkbox" name="occ" value="halloween"> Halloween 🎃</label>
+          </div>
+
+          <div class="filter-group">
+            <h4>Product Type</h4>
+            <label><input type="checkbox" name="cat" value="mugs"> Mugs ☕</label>
+            <label><input type="checkbox" name="cat" value="tshirts"> T-Shirts 👕</label>
+            <label><input type="checkbox" name="cat" value="cushions"> Cushions 🛋️</label>
+            <label><input type="checkbox" name="cat" value="keyrings"> Keyrings 🔑</label>
+            <label><input type="checkbox" name="cat" value="accessories"> Accessories 🕶️</label>
+            <label><input type="checkbox" name="cat" value="caps"> Caps 🧢</label>
+            <label><input type="checkbox" name="cat" value="scarves"> Scarves 🧣</label>
+            <label><input type="checkbox" name="cat" value="balloons"> Balloons 🎈</label>
+          </div>
+
+          <div class="filter-group">
+            <h4>Price Range</h4>
+            <label><input type="checkbox" name="price" value="under10"> Under £10</label>
+            <label><input type="checkbox" name="price" value="10-25"> £10 – £25</label>
+            <label><input type="checkbox" name="price" value="25-50"> £25 – £50</label>
+            <label><input type="checkbox" name="price" value="over50"> Over £50</label>
+          </div>
+
+          <button class="btn-primary" id="apply-filters">Apply Filters</button>
+          <button class="filter-clear" id="clear-filters">Clear All</button>
+        </aside>
+
+        <!-- MAIN PRODUCTS -->
+        <div class="shop-main">
+          <div class="shop-header-bar">
+            <h1 id="shop-title">All Gifts</h1>
+            <div class="shop-controls">
+              <span id="product-count">50+ products</span>
+              <select id="sort-select" class="sort-select">
+                <option value="popular">Most Popular</option>
+                <option value="price-asc">Price: Low to High</option>
+                <option value="price-desc">Price: High to Low</option>
+                <option value="newest">Newest First</option>
+                <option value="az">Name: A–Z</option>
+              </select>
+            </div>
+          </div>
+
+          <div class="products-grid" id="products-grid">
+
+            <!-- PRODUCT 1 -->
+            <div class="product-card" data-cat="mugs" data-price="12.99">
+              <div class="pc-img-wrap">
+                <img src="../assets/products/mugs.png" alt="Personalised Birthday Mug" loading="lazy" />
+                <div class="pc-badges"><span class="pc-badge">Bestseller ⭐</span></div>
+                <button class="pc-wishlist" aria-label="Wishlist">♡</button>
+              </div>
+              <div class="pc-info">
+                <h3 class="pc-name">Personalised Birthday Mug</h3>
+                <p class="pc-sub">Add any name or message</p>
+                <div class="pc-rating">⭐⭐⭐⭐⭐ (247)</div>
+                <div class="pc-price-row">
+                  <span class="pc-price">£12.99</span>
+                  <a href="product.html?id=mug-birthday" class="btn-customise">Customise ✨</a>
+                </div>
+              </div>
+            </div>
+
+            <!-- PRODUCT 2 -->
+            <div class="product-card" data-cat="tshirts" data-price="18.99">
+              <div class="pc-img-wrap">
+                <img src="../assets/products/tshirts.png" alt="Funny Birthday T-Shirt" loading="lazy" />
+                <div class="pc-badges"><span class="pc-badge new-badge">New 🌟</span></div>
+                <button class="pc-wishlist" aria-label="Wishlist">♡</button>
+              </div>
+              <div class="pc-info">
+                <h3 class="pc-name">Funny Birthday T-Shirt</h3>
+                <p class="pc-sub">Custom age & name printing</p>
+                <div class="pc-rating">⭐⭐⭐⭐⭐ (183)</div>
+                <div class="pc-price-row">
+                  <span class="pc-price">£18.99</span>
+                  <a href="product.html?id=tshirt-birthday" class="btn-customise">Customise ✨</a>
+                </div>
+              </div>
+            </div>
+
+            <!-- PRODUCT 3 -->
+            <div class="product-card" data-cat="cushions" data-price="22.99">
+              <div class="pc-img-wrap">
+                <img src="../assets/products/cushions.png" alt="Custom Photo Cushion" loading="lazy" />
+                <div class="pc-badges"><span class="pc-badge sale-badge">Sale 🔥</span></div>
+                <button class="pc-wishlist" aria-label="Wishlist">♡</button>
+              </div>
+              <div class="pc-info">
+                <h3 class="pc-name">Custom Photo Cushion</h3>
+                <p class="pc-sub">Upload your favourite photo</p>
+                <div class="pc-rating">⭐⭐⭐⭐⭐ (312)</div>
+                <div class="pc-price-row">
+                  <span class="pc-price"><s style="color:#999;font-weight:400;font-size:13px">£29.99</s> £22.99</span>
+                  <a href="product.html?id=cushion-photo" class="btn-customise">Customise ✨</a>
+                </div>
+              </div>
+            </div>
+
+            <!-- PRODUCT 4 -->
+            <div class="product-card" data-cat="keyrings" data-price="8.99">
+              <div class="pc-img-wrap">
+                <img src="../assets/products/keyrings.png" alt="Personalised Keyring" loading="lazy" />
+                <button class="pc-wishlist" aria-label="Wishlist">♡</button>
+              </div>
+              <div class="pc-info">
+                <h3 class="pc-name">Personalised Engraved Keyring</h3>
+                <p class="pc-sub">Name, date or short message</p>
+                <div class="pc-rating">⭐⭐⭐⭐⭐ (428)</div>
+                <div class="pc-price-row">
+                  <span class="pc-price">£8.99</span>
+                  <a href="product.html?id=keyring-engraved" class="btn-customise">Customise ✨</a>
+                </div>
+              </div>
+            </div>
+
+            <!-- PRODUCT 5 -->
+            <div class="product-card" data-cat="accessories" data-price="14.99">
+              <div class="pc-img-wrap">
+                <img src="../assets/products/accessories.png" alt="Fun Party Sunglasses" loading="lazy" />
+                <button class="pc-wishlist" aria-label="Wishlist">♡</button>
+              </div>
+              <div class="pc-info">
+                <h3 class="pc-name">Fun Party Sunglasses</h3>
+                <p class="pc-sub">Perfect novelty birthday gift</p>
+                <div class="pc-rating">⭐⭐⭐⭐ (96)</div>
+                <div class="pc-price-row">
+                  <span class="pc-price">£14.99</span>
+                  <a href="product.html?id=sunglasses-party" class="btn-customise">Add to Bag 🛒</a>
+                </div>
+              </div>
+            </div>
+
+            <!-- PRODUCT 6 -->
+            <div class="product-card" data-cat="caps" data-price="16.99">
+              <div class="pc-img-wrap">
+                <img src="../assets/products/caps.png" alt="Custom Embroidered Cap" loading="lazy" />
+                <button class="pc-wishlist" aria-label="Wishlist">♡</button>
+              </div>
+              <div class="pc-info">
+                <h3 class="pc-name">Custom Embroidered Cap</h3>
+                <p class="pc-sub">Text or logo embroidery options</p>
+                <div class="pc-rating">⭐⭐⭐⭐⭐ (74)</div>
+                <div class="pc-price-row">
+                  <span class="pc-price">£16.99</span>
+                  <a href="product.html?id=cap-embroidered" class="btn-customise">Customise ✨</a>
+                </div>
+              </div>
+            </div>
+
+            <!-- PRODUCT 7 -->
+            <div class="product-card" data-cat="mugs" data-price="15.99">
+              <div class="pc-img-wrap">
+                <img src="../assets/products/mugs.png" alt="Anniversary Couple Mug" loading="lazy" />
+                <button class="pc-wishlist" aria-label="Wishlist">♡</button>
+              </div>
+              <div class="pc-info">
+                <h3 class="pc-name">Anniversary Couple Mug Set</h3>
+                <p class="pc-sub">His & Hers personalised mugs</p>
+                <div class="pc-rating">⭐⭐⭐⭐⭐ (159)</div>
+                <div class="pc-price-row">
+                  <span class="pc-price">£24.99</span>
+                  <a href="product.html?id=mug-couple" class="btn-customise">Customise ✨</a>
+                </div>
+              </div>
+            </div>
+
+            <!-- PRODUCT 8 -->
+            <div class="product-card" data-cat="scarves" data-price="19.99">
+              <div class="pc-img-wrap">
+                <img src="../assets/products/scarves.png" alt="Luxury Personalised Scarf" loading="lazy" />
+                <button class="pc-wishlist" aria-label="Wishlist">♡</button>
+              </div>
+              <div class="pc-info">
+                <h3 class="pc-name">Luxury Personalised Scarf</h3>
+                <p class="pc-sub">Soft, premium material, monogrammed</p>
+                <div class="pc-rating">⭐⭐⭐⭐⭐ (52)</div>
+                <div class="pc-price-row">
+                  <span class="pc-price">£19.99</span>
+                  <a href="product.html?id=scarf-personalised" class="btn-customise">Customise ✨</a>
+                </div>
+              </div>
+            </div>
+
+            <!-- PRODUCT 9 -->
+            <div class="product-card" data-cat="tshirts" data-price="21.99">
+              <div class="pc-img-wrap">
+                <img src="../assets/products/tshirts.png" alt="Mother's Day T-Shirt" loading="lazy" />
+                <div class="pc-badges"><span class="pc-badge">Bestseller ⭐</span></div>
+                <button class="pc-wishlist" aria-label="Wishlist">♡</button>
+              </div>
+              <div class="pc-info">
+                <h3 class="pc-name">World's Best Mum T-Shirt</h3>
+                <p class="pc-sub">Perfect Mother's Day gift</p>
+                <div class="pc-rating">⭐⭐⭐⭐⭐ (203)</div>
+                <div class="pc-price-row">
+                  <span class="pc-price">£21.99</span>
+                  <a href="product.html?id=tshirt-mum" class="btn-customise">Customise ✨</a>
+                </div>
+              </div>
+            </div>
+
+            <!-- PRODUCT 10 -->
+            <div class="product-card" data-cat="balloons" data-price="9.99">
+              <div class="pc-img-wrap">
+                <img src="../assets/products/balloons.png" alt="Happy Birthday Balloon Bouquet" loading="lazy" />
+                <button class="pc-wishlist" aria-label="Wishlist">♡</button>
+              </div>
+              <div class="pc-info">
+                <h3 class="pc-name">Birthday Balloon Bouquet</h3>
+                <p class="pc-sub">Delivered inflated & ready</p>
+                <div class="pc-rating">⭐⭐⭐⭐ (88)</div>
+                <div class="pc-price-row">
+                  <span class="pc-price">£9.99</span>
+                  <a href="product.html?id=balloon-birthday" class="btn-customise">Add to Bag 🛒</a>
+                </div>
+              </div>
+            </div>
+
+            <!-- PRODUCT 11 -->
+            <div class="product-card" data-cat="cushions" data-price="28.99">
+              <div class="pc-img-wrap">
+                <img src="../assets/products/cushions.png" alt="Personalised Name Cushion" loading="lazy" />
+                <button class="pc-wishlist" aria-label="Wishlist">♡</button>
+              </div>
+              <div class="pc-info">
+                <h3 class="pc-name">Personalised Name Cushion</h3>
+                <p class="pc-sub">Custom name, colour & size</p>
+                <div class="pc-rating">⭐⭐⭐⭐⭐ (141)</div>
+                <div class="pc-price-row">
+                  <span class="pc-price">£28.99</span>
+                  <a href="product.html?id=cushion-name" class="btn-customise">Customise ✨</a>
+                </div>
+              </div>
+            </div>
+
+            <!-- PRODUCT 12 -->
+            <div class="product-card" data-cat="keyrings" data-price="11.99">
+              <div class="pc-img-wrap">
+                <img src="../assets/products/keyrings.png" alt="Funny Novelty Keyring" loading="lazy" />
+                <button class="pc-wishlist" aria-label="Wishlist">♡</button>
+              </div>
+              <div class="pc-info">
+                <h3 class="pc-name">Funny Novelty Badge & Pin Set</h3>
+                <p class="pc-sub">Great stocking filler or party gift</p>
+                <div class="pc-rating">⭐⭐⭐⭐ (67)</div>
+                <div class="pc-price-row">
+                  <span class="pc-price">£11.99</span>
+                  <a href="product.html?id=badge-set" class="btn-customise">Add to Bag 🛒</a>
+                </div>
+              </div>
+            </div>
+
+          </div>
+
+          <!-- Load More -->
+          <div style="text-align:center; margin-top:48px;">
+            <button class="btn-outline" id="load-more" style="color:var(--secondary);border-color:var(--secondary);">Load More Products</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <!-- FOOTER -->
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-bottom" style="border-top:none; padding-top:32px;">
+        <p>© 2025 IGötNag. <a href="../index.html">Back to Home</a> | <a href="privacy.html">Privacy</a> | <a href="terms.html">Terms</a></p>
+        <p class="footer-nag-msg"><span class="nag-n">N</span>ot <span class="nag-a">A</span>nother <span class="nag-gword">G</span>reeting-card 🚫</p>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    // Mobile nav
+    document.getElementById('menu-toggle')?.addEventListener('click', () => document.getElementById('mobile-nav')?.classList.toggle('open'));
+    
+    // Read URL params to set page title & filter
+    const params = new URLSearchParams(window.location.search);
+    const occasion = params.get('occasion');
+    const cat = params.get('cat');
+    const search = params.get('search');
+    const t = document.getElementById('shop-title');
+    const bc = document.getElementById('breadcrumb-current');
+    if (occasion && t) { const n = occasion.replace(/-/g,' ').replace(/\b\w/g,c=>c.toUpperCase()); t.textContent = n + ' Gifts'; if(bc) bc.textContent = n + ' Gifts'; }
+    if (cat && t) { const n = cat.replace(/-/g,' ').replace(/\b\w/g,c=>c.toUpperCase()); t.textContent = n; if(bc) bc.textContent = n; }
+    if (search && t) { t.textContent = `Results for "${search}"`; if(bc) bc.textContent = `Search: ${search}`; }
+
+    // Wishlist hearts
+    document.querySelectorAll('.pc-wishlist').forEach(b => b.addEventListener('click', function(){ this.classList.toggle('active'); this.textContent = this.classList.contains('active') ? '♥' : '♡'; if(this.classList.contains('active')) this.style.color='var(--nag-red)'; else this.style.color=''; }));
+    
+    // Sticky header scroll
+    const h = document.getElementById('site-header');
+    window.addEventListener('scroll', () => { if(window.scrollY>40) h?.classList.add('scrolled'); else h?.classList.remove('scrolled'); }, {passive:true});
+  </script>
+</body>
+</html>

@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Personalised Gift | IGötNag – Not Another Greeting Card</title>
+  <meta name="description" content="Personalise this unique gift at IGötNag. Add a name, photo or message to make it truly special." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="../style.css" />
+  <link rel="stylesheet" href="pages.css" />
+</head>
+<body>
+
+  <div class="ticker-bar">
+    <div class="ticker-track">
+      <span class="ticker-item">🎁 <strong>igotnag.com</strong> — Not Another Greeting Card!</span>
+      <span class="ticker-item">Free UK delivery on orders over £30 🚚</span>
+      <span class="ticker-item">🎁 <strong>igotnag.com</strong> — Not Another Greeting Card!</span>
+      <span class="ticker-item">Free UK delivery on orders over £30 🚚</span>
+    </div>
+  </div>
+
+  <header class="site-header" id="site-header">
+    <div class="header-inner">
+      <a href="../index.html" class="logo-link">
+        <div class="logo-text"><span class="logo-ig">IG</span><span class="logo-ot">öt</span><span class="logo-nag">NAG</span></div>
+      </a>
+      <nav class="header-actions">
+        <a href="shop.html" class="nav-link">Shop</a>
+        <a href="contact.html" class="nav-link">Contact</a>
+        <a href="../index.html" class="cart-btn" id="cart-btn-prod">🛒 <span class="cart-count">0</span></a>
+      </nav>
+    </div>
+  </header>
+
+  <div class="page-breadcrumb">
+    <div class="container">
+      <a href="../index.html">Home</a> › <a href="shop.html">Shop</a> › <span id="product-breadcrumb">Personalised Gift</span>
+    </div>
+  </div>
+
+  <main class="product-page">
+    <div class="container">
+      <div class="product-layout">
+
+        <!-- GALLERY -->
+        <div class="product-gallery">
+          <div class="product-main-img" id="main-img-wrap">
+            <img src="../assets/products/mugs.png" alt="Personalised Birthday Mug" id="main-product-img" />
+          </div>
+          <div class="product-thumbs">
+            <div class="product-thumb active" onclick="changeImg('../assets/products/mugs.png', this)">
+              <img src="../assets/products/mugs.png" alt="View 1" />
+            </div>
+            <div class="product-thumb" onclick="changeImg('../assets/products/tshirts.png', this)">
+              <img src="../assets/products/tshirts.png" alt="View 2" />
+            </div>
+            <div class="product-thumb" onclick="changeImg('../assets/products/cushions.png', this)">
+              <img src="../assets/products/cushions.png" alt="View 3" />
+            </div>
+          </div>
+        </div>
+
+        <!-- INFO -->
+        <div class="product-info">
+          <div class="product-badges">
+            <span class="product-badge">⭐ Bestseller</span>
+            <span class="product-badge" style="background:var(--success);color:white;">✅ In Stock</span>
+          </div>
+
+          <h1 class="product-title" id="product-title">Personalised Birthday Mug</h1>
+          <div class="product-rating">⭐⭐⭐⭐⭐ <span style="color:var(--text-muted)">(247 reviews)</span></div>
+          <div class="product-price" id="product-price">£12.99</div>
+          <p class="product-desc" id="product-desc">
+            Create the perfect personalised gift! This beautiful mug can be customised with any name, message or special date. Dishwasher safe, premium quality, and always delivered beautifully wrapped. Makes a perfect birthday, anniversary or Christmas gift.
+          </p>
+
+          <!-- Trust Badges Row -->
+          <div class="trust-badges" style="justify-content:flex-start; padding:0; margin-bottom:24px;">
+            <div class="badge"><span class="badge-icon">🚚</span><div><strong>Free Delivery</strong><small>Over £30</small></div></div>
+            <div class="badge"><span class="badge-icon">🔒</span><div><strong>Secure Pay</strong><small>SSL Protected</small></div></div>
+            <div class="badge"><span class="badge-icon">🎁</span><div><strong>Gift Wrap</strong><small>Free</small></div></div>
+          </div>
+
+          <!-- Personalisation Form -->
+          <div class="customise-form">
+            <h3>✨ Personalise Your Gift</h3>
+            <div class="form-field">
+              <label for="personalise-name">Name (required)</label>
+              <input type="text" id="personalise-name" placeholder="e.g. Sarah, Mum, Dad..." maxlength="30" required />
+            </div>
+            <div class="form-field">
+              <label for="personalise-message">Personal Message (optional)</label>
+              <textarea id="personalise-message" rows="3" placeholder="e.g. Happy Birthday! Love you loads x" maxlength="100"></textarea>
+            </div>
+            <div class="form-field">
+              <label for="personalise-font">Font Style</label>
+              <select id="personalise-font">
+                <option value="script">Script (Elegant Cursive)</option>
+                <option value="bold">Bold (Modern Sans)</option>
+                <option value="classic">Classic (Serif)</option>
+                <option value="fun">Fun (Rounded)</option>
+              </select>
+            </div>
+            <div class="form-field">
+              <label for="personalise-colour">Text Colour</label>
+              <select id="personalise-colour">
+                <option value="black">Classic Black</option>
+                <option value="gold">Gold ✨</option>
+                <option value="rose-gold">Rose Gold 💕</option>
+                <option value="navy">Navy Blue</option>
+                <option value="red">Vibrant Red</option>
+                <option value="purple">Royal Purple</option>
+              </select>
+            </div>
+          </div>
+
+          <!-- Quantity & CTA -->
+          <div style="display:flex;align-items:center;gap:16px;margin-bottom:16px;flex-wrap:wrap;">
+            <label for="qty" style="font-weight:700;font-size:14px;">Quantity:</label>
+            <div style="display:flex;align-items:center;border:2px solid var(--border);border-radius:50px;overflow:hidden;">
+              <button onclick="changeQty(-1)" style="padding:8px 16px;font-size:18px;font-weight:700;cursor:pointer;border:none;background:white;transition:background 0.2s" onmouseover="this.style.background='#f3e8ff'" onmouseout="this.style.background='white'">−</button>
+              <span id="qty-display" style="padding:8px 20px;font-size:16px;font-weight:700;border-left:2px solid var(--border);border-right:2px solid var(--border);">1</span>
+              <button onclick="changeQty(1)" style="padding:8px 16px;font-size:18px;font-weight:700;cursor:pointer;border:none;background:white;transition:background 0.2s" onmouseover="this.style.background='#f3e8ff'" onmouseout="this.style.background='white'">+</button>
+            </div>
+          </div>
+
+          <div class="product-cta">
+            <button class="btn-primary" id="add-to-cart-btn" style="flex:1;" onclick="addToCart()">Add to Basket 🛒</button>
+            <button class="btn-heart" id="product-wishlist" aria-label="Save to wishlist">♡</button>
+          </div>
+
+          <div id="add-success" style="display:none;margin-top:16px;padding:16px;background:rgba(34,197,94,0.1);border:2px solid #22c55e;border-radius:var(--radius-md);color:#22c55e;font-weight:700;text-align:center;">
+            ✅ Added to your basket!
+          </div>
+
+          <!-- Additional Info -->
+          <div style="margin-top:28px; padding:20px; background:var(--light-bg); border-radius:var(--radius-lg); border:1px solid var(--border);">
+            <p style="font-size:14px; color:var(--text-muted); margin-bottom:8px;">📦 <strong>Packaging:</strong> Delivered in premium gift-ready packaging, free of charge.</p>
+            <p style="font-size:14px; color:var(--text-muted); margin-bottom:8px;">🚚 <strong>Delivery:</strong> Standard 3–5 days | Express 1–2 days available.</p>
+            <p style="font-size:14px; color:var(--text-muted);">🔄 <strong>Returns:</strong> 30-day hassle-free returns on non-personalised items.</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Reviews Section -->
+      <div style="margin-top:80px;">
+        <h2 style="font-size:28px;font-weight:900;margin-bottom:32px;">Customer Reviews ⭐</h2>
+        <div class="reviews-grid">
+          <div class="review-card">
+            <div class="review-stars">⭐⭐⭐⭐⭐</div>
+            <p class="review-text">"Got this for my mum's birthday and she absolutely loved it. The quality is brilliant and the personalisation looked exactly as shown!"</p>
+            <div class="review-author">– Sarah M., London</div>
+          </div>
+          <div class="review-card">
+            <div class="review-stars">⭐⭐⭐⭐⭐</div>
+            <p class="review-text">"Really fast delivery and packaged beautifully. My partner was so happy — definitely ordering again!"</p>
+            <div class="review-author">– James T., Manchester</div>
+          </div>
+          <div class="review-card">
+            <div class="review-stars">⭐⭐⭐⭐⭐</div>
+            <p class="review-text">"Finally a gift that's NOT a boring card. So thoughtful and personal. Will definitely recommend IGötNag to everyone."</p>
+            <div class="review-author">– Emma R., Birmingham</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-bottom" style="border-top:none; padding-top:32px;">
+        <p>© 2025 IGötNag. <a href="../index.html">Back to Home</a> | <a href="shop.html">Shop</a> | <a href="contact.html">Contact</a></p>
+        <p class="footer-nag-msg"><span class="nag-n">N</span>ot <span class="nag-a">A</span>nother <span class="nag-gword">G</span>reeting-card 🚫</p>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    const h = document.getElementById('site-header');
+    window.addEventListener('scroll', () => { if(window.scrollY>40) h?.classList.add('scrolled'); else h?.classList.remove('scrolled'); }, {passive:true});
+
+    let qty = 1;
+    function changeQty(n) {
+      qty = Math.max(1, qty + n);
+      document.getElementById('qty-display').textContent = qty;
+    }
+
+    function changeImg(src, el) {
+      document.getElementById('main-product-img').src = src;
+      document.querySelectorAll('.product-thumb').forEach(t => t.classList.remove('active'));
+      el.classList.add('active');
+    }
+
+    function addToCart() {
+      const btn = document.getElementById('add-to-cart-btn');
+      const success = document.getElementById('add-success');
+      btn.textContent = '✅ Added!';
+      btn.style.background = 'var(--success)';
+      success.style.display = 'block';
+      setTimeout(() => {
+        btn.textContent = 'Add to Basket 🛒';
+        btn.style.background = '';
+      }, 2000);
+      // Update cart count
+      const countEl = document.querySelector('.cart-count');
+      if (countEl) countEl.textContent = parseInt(countEl.textContent||0) + qty;
+    }
+
+    document.getElementById('product-wishlist')?.addEventListener('click', function() {
+      this.classList.toggle('active');
+      this.textContent = this.classList.contains('active') ? '♥' : '♡';
+    });
+
+    // Load product data from URL
+    const params = new URLSearchParams(window.location.search);
+    const id = params.get('id');
+    const products = {
+      'mug-birthday': {title:'Personalised Birthday Mug', price:'£12.99'},
+      'mug-couple': {title:'Anniversary Couple Mug Set', price:'£24.99'},
+      'tshirt-birthday': {title:'Funny Birthday T-Shirt', price:'£18.99'},
+      'tshirt-mum': {title:"World's Best Mum T-Shirt", price:'£21.99'},
+      'cushion-photo': {title:'Custom Photo Cushion', price:'£22.99'},
+      'cushion-name': {title:'Personalised Name Cushion', price:'£28.99'},
+      'keyring-engraved': {title:'Personalised Engraved Keyring', price:'£8.99'},
+      'badge-set': {title:'Funny Novelty Badge & Pin Set', price:'£11.99'},
+      'cap-embroidered': {title:'Custom Embroidered Cap', price:'£16.99'},
+      'scarf-personalised': {title:'Luxury Personalised Scarf', price:'£19.99'},
+      'sunglasses-party': {title:'Fun Party Sunglasses', price:'£14.99'},
+      'balloon-birthday': {title:'Birthday Balloon Bouquet', price:'£9.99'},
+    };
+    if (id && products[id]) {
+      const p = products[id];
+      document.getElementById('product-title').textContent = p.title;
+      document.getElementById('product-price').textContent = p.price;
+      document.getElementById('product-breadcrumb').textContent = p.title;
+      document.title = p.title + ' | IGötNag';
+    }
+  </script>
+</body>
+</html>
