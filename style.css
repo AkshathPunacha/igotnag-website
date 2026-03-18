@@ -865,64 +865,154 @@ button { cursor: pointer; font-family: inherit; border: none; background: none; 
    ============================================ */
 .countdown-wrap {
   margin-top: 60px;
-  background: var(--dark-bg);
-  padding: 40px;
+  background: linear-gradient(135deg, var(--dark-bg) 0%, #2d0a52 100%);
+  padding: 48px 40px;
   border-radius: var(--radius-xl);
   color: white;
   box-shadow: 0 20px 60px rgba(0,0,0,0.4);
+  border: 2px solid rgba(245,200,66,0.2);
 }
-.countdown-selector {
+.countdown-inner {
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 24px;
+  gap: 32px;
 }
-#countdown-choice {
-  background: white;
-  color: var(--dark-bg);
-  padding: 12px 24px;
-  border-radius: 50px;
-  font-weight: 800;
-  font-size: 16px;
-  border: 4px solid var(--gold);
-  cursor: pointer;
-}
-.countdown-display {
+.count-heading {
   text-align: center;
 }
-.count-label {
+.count-days-to {
   display: block;
-  font-size: 24px;
+  font-size: 14px;
   font-weight: 700;
-  color: var(--gold);
-  margin-bottom: 12px;
+  text-transform: uppercase;
+  letter-spacing: 3px;
+  color: rgba(255,255,255,0.5);
+  margin-bottom: 6px;
 }
+.count-active-name {
+  display: block;
+  font-size: 32px;
+  font-weight: 900;
+  color: var(--gold);
+}
+.count-timer-row { width: 100%; display: flex; justify-content: center; }
 .count-numbers {
   display: flex;
-  gap: 16px;
-  font-size: 48px;
+  align-items: flex-end;
+  gap: 8px;
+}
+.count-unit {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 4px;
+}
+.count-unit span {
+  font-size: clamp(48px, 8vw, 80px);
   font-weight: 900;
-}
-.count-numbers span {
-  background: rgba(255,255,255,0.1);
-  padding: 10px 20px;
+  background: rgba(255,255,255,0.08);
+  border: 2px solid rgba(255,255,255,0.12);
   border-radius: var(--radius-md);
-  min-width: 90px;
-  display: inline-block;
+  padding: 12px 20px;
+  min-width: 100px;
+  text-align: center;
+  line-height: 1;
+  font-variant-numeric: tabular-nums;
+  transition: background 0.3s ease;
 }
-.count-numbers small {
-  font-size: 14px;
+.count-unit small {
+  font-size: 12px;
+  font-weight: 700;
   text-transform: uppercase;
-  color: rgba(255,255,255,0.6);
-  margin-left: 4px;
+  letter-spacing: 2px;
+  color: rgba(255,255,255,0.45);
+}
+.count-separator {
+  font-size: 56px;
+  font-weight: 900;
+  color: var(--gold);
+  line-height: 1;
+  padding-bottom: 28px;
+}
+/* 3 clickable event cards */
+.count-events {
+  display: flex;
+  gap: 16px;
+  flex-wrap: wrap;
+  justify-content: center;
+  width: 100%;
+}
+.count-event-card {
+  flex: 1;
+  min-width: 140px;
+  max-width: 200px;
+  background: rgba(255,255,255,0.06);
+  border: 2px solid rgba(255,255,255,0.1);
+  border-radius: var(--radius-lg);
+  padding: 20px 16px;
+  text-align: center;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  user-select: none;
+}
+.count-event-card:hover {
+  background: rgba(255,255,255,0.12);
+  border-color: rgba(245,200,66,0.5);
+  transform: translateY(-3px);
+}
+.count-event-card.active {
+  background: rgba(245,200,66,0.15);
+  border-color: var(--gold);
+  box-shadow: 0 0 24px rgba(245,200,66,0.2);
+}
+.count-event-emoji { font-size: 32px; margin-bottom: 8px; }
+.count-event-label {
+  font-size: 13px;
+  font-weight: 700;
+  color: rgba(255,255,255,0.75);
+  margin-bottom: 8px;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+.count-event-value {
+  font-size: 13px;
+  font-weight: 800;
+  color: var(--gold);
+}
+/* Reminder row */
+.count-reminder-row {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 12px;
 }
 .btn-reminder {
   background: var(--gold);
   color: var(--dark-bg);
-  padding: 12px 30px;
+  padding: 14px 32px;
   border-radius: 50px;
   font-weight: 800;
-  margin-top: 10px;
+  font-size: 15px;
+  transition: transform var(--transition), box-shadow var(--transition);
+  box-shadow: 0 4px 20px rgba(245,200,66,0.35);
+}
+.btn-reminder:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 32px rgba(245,200,66,0.5);
+}
+.count-reminder-msg {
+  font-size: 14px;
+  color: var(--gold);
+  font-weight: 600;
+  min-height: 20px;
+}
+@media (max-width: 768px) {
+  .countdown-wrap { padding: 32px 20px; }
+  .count-unit span { font-size: 40px; min-width: 72px; padding: 10px 12px; }
+  .count-separator { font-size: 40px; padding-bottom: 22px; }
+  .count-events { gap: 10px; }
+  .count-event-card { min-width: 100px; padding: 14px 10px; }
 }
 
 /* ============================================

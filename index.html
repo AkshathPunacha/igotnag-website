@@ -586,22 +586,58 @@
 
       <!-- COUNTDOWN SECTION -->
       <div class="countdown-wrap" id="countdown-section">
-        <div class="countdown-selector">
-          <select id="countdown-choice">
-            <option value="birthday">Your Birthday</option>
-            <option value="easter">Easter</option>
-            <option value="christmas">Christmas</option>
-          </select>
-          <div class="countdown-display">
-            <span class="count-label">Days To...</span>
+        <div class="countdown-inner">
+          <div class="count-heading">
+            <span class="count-days-to">Days To...</span>
+            <span class="count-active-name" id="count-active-name">Your Birthday</span>
+          </div>
+
+          <div class="count-timer-row">
             <div class="count-numbers" id="main-countdown">
-              <span id="count-days">00</span><small>d</small>
-              <span id="count-hours">00</span><small>h</small>
-              <span id="count-mins">00</span><small>m</small>
-              <span id="count-secs">00</span><small>s</small>
+              <div class="count-unit">
+                <span id="count-days">00</span>
+                <small>days</small>
+              </div>
+              <div class="count-separator">:</div>
+              <div class="count-unit">
+                <span id="count-hours">00</span>
+                <small>h</small>
+              </div>
+              <div class="count-separator">:</div>
+              <div class="count-unit">
+                <span id="count-mins">00</span>
+                <small>m</small>
+              </div>
+              <div class="count-separator">:</div>
+              <div class="count-unit">
+                <span id="count-secs">00</span>
+                <small>s</small>
+              </div>
             </div>
           </div>
-          <button class="btn-reminder">🔔 Remind Me</button>
+
+          <div class="count-events" id="count-events">
+            <div class="count-event-card active" data-event="birthday" id="event-birthday">
+              <div class="count-event-emoji">🎂</div>
+              <div class="count-event-label">Your Birthday</div>
+              <div class="count-event-value" id="preview-birthday">...</div>
+            </div>
+            <div class="count-event-card" data-event="easter" id="event-easter">
+              <div class="count-event-emoji">🐣</div>
+              <div class="count-event-label">Easter</div>
+              <div class="count-event-value" id="preview-easter">...</div>
+            </div>
+            <div class="count-event-card" data-event="christmas" id="event-christmas">
+              <div class="count-event-emoji">🎄</div>
+              <div class="count-event-label">Christmas</div>
+              <div class="count-event-value" id="preview-christmas">...</div>
+            </div>
+          </div>
+
+          <div class="count-reminder-row">
+            <button class="btn-reminder" id="remind-btn">🔔 Set Reminder</button>
+            <div class="count-reminder-msg" id="reminder-msg"></div>
+          </div>
         </div>
       </div>
     </div>
@@ -611,7 +647,7 @@
   <section class="section section-dark top-secret" id="top-secret">
     <div class="container">
       <div class="section-header">
-        <h2 class="section-title light">Top Secret #</h2>
+        <h2 class="section-title light">Top Secret</h2>
       </div>
       <div class="secret-loop-container">
         <div class="secret-slide-loop">

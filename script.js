@@ -412,59 +412,140 @@ document.addEventListener('DOMContentLoaded', () => {
   });
 
   // ================================================
-  // COUNTDOWN LOGIC
+  // COUNTDOWN LOGIC — card-based multi-event
   // ================================================
-  const countdownChoice = document.getElementById('countdown-choice');
-  const daysEl = document.getElementById('count-days');
-  const hoursEl = document.getElementById('count-hours');
-  const minsEl = document.getElementById('count-mins');
-  const secsEl = document.getElementById('count-secs');
+  const daysEl   = document.getElementById('count-days');
+  const hoursEl  = document.getElementById('count-hours');
+  const minsEl   = document.getElementById('count-mins');
+  const secsEl   = document.getElementById('count-secs');
+  const activeName = document.getElementById('count-active-name');
+  const eventCards = document.querySelectorAll('.count-event-card');
 
-  function updateCountdown() {
+  let activeEvent = 'birthday';
+
+  // Compute target for a given event key
+  function getTarget(key) {
     const now = new Date();
-    let targetDate = new Date();
-    const choice = countdownChoice?.value || 'birthday';
-
-    if (choice === 'birthday') {
+    if (key === 'birthday') {
       const bdayInput = document.getElementById('bday-input-date')?.value;
       if (bdayInput) {
         const bday = new Date(bdayInput);
-        targetDate.setMonth(bday.getMonth());
-        targetDate.setDate(bday.getDate());
-        if (targetDate < now) targetDate.setFullYear(now.getFullYear() + 1);
-        else targetDate.setFullYear(now.getFullYear());
-      } else {
-        // Default to something if no bday input
-        targetDate = new Date(now.getFullYear(), 11, 31); // End of year
+        const t = new Date(now.getFullYear(), bday.getMonth(), bday.getDate());
+        if (t < now) t.setFullYear(now.getFullYear() + 1);
+        return t;
       }
-    } else if (choice === 'easter') {
-      // Easter 2026 (for demo purposes)
-      targetDate = new Date("April 5, 2026 00:00:00");
-    } else if (choice === 'christmas') {
-      targetDate = new Date(now.getFullYear(), 11, 25);
-      if (targetDate < now) targetDate.setFullYear(now.getFullYear() + 1);
+      // Default: Jan 1 next year
+      return new Date(now.getFullYear() + 1, 0, 1);
+    } else if (key === 'easter') {
+      // Easter 2026: April 5
+      const e = new Date('April 5, 2026 00:00:00');
+      return e < now ? new Date('April 18, 2027 00:00:00') : e;
+    } else if (key === 'christmas') {
+      const xmas = new Date(now.getFullYear(), 11, 25);
+      if (xmas < now) xmas.setFullYear(now.getFullYear() + 1);
+      return xmas;
     }
-
-    const diff = targetDate - now;
-    if (diff <= 0) {
-       if (daysEl) daysEl.textContent = "00";
-       return;
-    }
-
-    const d = Math.floor(diff / (1000 * 60 * 60 * 24));
-    const h = Math.floor((diff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-    const m = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));
-    const s = Math.floor((diff % (1000 * 60)) / 1000);
-
-    if (daysEl) daysEl.textContent = String(d).padStart(2, '0');
-    if (hoursEl) hoursEl.textContent = String(h).padStart(2, '0');
-    if (minsEl) minsEl.textContent = String(m).padStart(2, '0');
-    if (secsEl) secsEl.textContent = String(s).padStart(2, '0');
+    return new Date(now.getFullYear() + 1, 0, 1);
   }
 
+  // Return a short "Xd Xh Xm" preview string
+  function previewDiff(key) {
+    const diff = getTarget(key) - new Date();
+    if (diff <= 0) return 'Today! 🎉';
+    const d = Math.floor(diff / 86400000);
+    const h = Math.floor((diff % 86400000) / 3600000);
+    const m = Math.floor((diff % 3600000) / 60000);
+    return `${d}d ${h}h ${m}m`;
+  }
+
+  // Update the live main countdown
+  function updateCountdown() {
+    const now = new Date();
+    const target = getTarget(activeEvent);
+    const diff = target - now;
+
+    if (diff <= 0) {
+      ['count-days','count-hours','count-mins','count-secs'].forEach(id => {
+        const el = document.getElementById(id);
+        if (el) el.textContent = '00';
+      });
+      return;
+    }
+
+    const d = Math.floor(diff / 86400000);
+    const h = Math.floor((diff % 86400000) / 3600000);
+    const m = Math.floor((diff % 3600000) / 60000);
+    const s = Math.floor((diff % 60000) / 1000);
+
+    if (daysEl)  daysEl.textContent  = String(d).padStart(2, '0');
+    if (hoursEl) hoursEl.textContent = String(h).padStart(2, '0');
+    if (minsEl)  minsEl.textContent  = String(m).padStart(2, '0');
+    if (secsEl)  secsEl.textContent  = String(s).padStart(2, '0');
+
+    // Update all preview cards
+    ['birthday','easter','christmas'].forEach(key => {
+      const el = document.getElementById(`preview-${key}`);
+      if (el) el.textContent = previewDiff(key);
+    });
+  }
+
+  // Switch active event
+  function setActiveEvent(key) {
+    activeEvent = key;
+    eventCards.forEach(card => {
+      card.classList.toggle('active', card.dataset.event === key);
+    });
+    const labels = { birthday: 'Your Birthday 🎂', easter: 'Easter 🐣', christmas: 'Christmas 🎄' };
+    if (activeName) activeName.textContent = labels[key] || key;
+    updateCountdown();
+  }
+
+  // Card click
+  eventCards.forEach(card => {
+    card.addEventListener('click', () => setActiveEvent(card.dataset.event));
+  });
+
+  // Scroll through cards on the countdown section with wheel
+  const countWrap = document.getElementById('countdown-section');
+  const eventKeys = ['birthday', 'easter', 'christmas'];
+  if (countWrap) {
+    countWrap.addEventListener('wheel', (e) => {
+      e.preventDefault();
+      const idx = eventKeys.indexOf(activeEvent);
+      const next = e.deltaY > 0
+        ? eventKeys[(idx + 1) % eventKeys.length]
+        : eventKeys[(idx - 1 + eventKeys.length) % eventKeys.length];
+      setActiveEvent(next);
+    }, { passive: false });
+  }
+
+  // Reminder button
+  document.getElementById('remind-btn')?.addEventListener('click', () => {
+    const msg = document.getElementById('reminder-msg');
+    const labels = { birthday: 'Birthday', easter: 'Easter', christmas: 'Christmas' };
+    const target = getTarget(activeEvent);
+    const days = Math.ceil((target - new Date()) / 86400000);
+
+    if ('Notification' in window && Notification.permission !== 'denied') {
+      Notification.requestPermission().then(perm => {
+        if (perm === 'granted') {
+          new Notification(`⏰ IGötNag Reminder`, {
+            body: `${labels[activeEvent]} is in ${days} days! Don't forget to get a gift 🎁`,
+            icon: '/favicon.ico'
+          });
+          if (msg) { msg.textContent = `✅ Reminder set! ${labels[activeEvent]} is ${days} days away.`; }
+        } else {
+          if (msg) { msg.textContent = `📅 ${labels[activeEvent]} is in ${days} days — add it to your calendar!`; }
+        }
+      });
+    } else {
+      if (msg) { msg.textContent = `📅 ${labels[activeEvent]} is in ${days} days — don't forget a gift! 🎁`; }
+    }
+    setTimeout(() => { if (msg) msg.textContent = ''; }, 6000);
+  });
+
   setInterval(updateCountdown, 1000);
-  countdownChoice?.addEventListener('change', updateCountdown);
-  updateCountdown();
+  setActiveEvent('birthday');
 
   // ================================================
   // COOKIE NOTICE
