@@ -100,6 +100,7 @@ button { cursor: pointer; font-family: inherit; border: none; background: none; 
 .ticker-item strong { color: var(--gold); }
 .ticker-item.nag-red { color: var(--gold); font-weight: 700; }
 .nag-letters { color: var(--nag-red); font-weight: 900; font-size: 15px; }
+.ticker-emoji.bigger { font-size: 24px; vertical-align: middle; margin: 0 4px; }
 
 /* ============================================
    STICKY HEADER
@@ -798,6 +799,188 @@ button { cursor: pointer; font-family: inherit; border: none; background: none; 
   animation: factsScroll 30s linear infinite;
   width: max-content;
 }
+
+/* ============================================
+   BIRTHDAY FINDER MODERN
+   ============================================ */
+.birthday-finder-modern {
+  margin-top: 60px;
+  max-width: 800px;
+  margin-left: auto;
+  margin-right: auto;
+}
+.bday-modern-card {
+  background: white;
+  border-radius: var(--radius-lg);
+  padding: 40px;
+  box-shadow: var(--shadow-lg);
+  border: 4px solid var(--gold);
+  text-align: center;
+}
+.bday-header h3 {
+  font-size: 28px;
+  font-weight: 900;
+  color: var(--secondary);
+  margin-bottom: 24px;
+}
+.bday-input-group {
+  display: flex;
+  gap: 12px;
+  justify-content: center;
+  flex-wrap: wrap;
+  margin-bottom: 30px;
+}
+.bday-input-group input {
+  padding: 14px 20px;
+  border: 2px solid var(--border);
+  border-radius: 50px;
+  font-family: inherit;
+  font-size: 15px;
+  outline: none;
+}
+.bday-input-group input:focus { border-color: var(--primary); }
+#bday-search-btn-modern {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  background: var(--primary);
+  color: white;
+  font-size: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: transform var(--transition);
+}
+#bday-search-btn-modern:hover { transform: scale(1.1); }
+.bday-result-area {
+  min-height: 100px;
+  padding: 20px;
+  border: 2px dashed var(--border);
+  border-radius: var(--radius-md);
+  margin-top: 20px;
+}
+
+/* ============================================
+   COUNTDOWN TIMER
+   ============================================ */
+.countdown-wrap {
+  margin-top: 60px;
+  background: var(--dark-bg);
+  padding: 40px;
+  border-radius: var(--radius-xl);
+  color: white;
+  box-shadow: 0 20px 60px rgba(0,0,0,0.4);
+}
+.countdown-selector {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 24px;
+}
+#countdown-choice {
+  background: white;
+  color: var(--dark-bg);
+  padding: 12px 24px;
+  border-radius: 50px;
+  font-weight: 800;
+  font-size: 16px;
+  border: 4px solid var(--gold);
+  cursor: pointer;
+}
+.countdown-display {
+  text-align: center;
+}
+.count-label {
+  display: block;
+  font-size: 24px;
+  font-weight: 700;
+  color: var(--gold);
+  margin-bottom: 12px;
+}
+.count-numbers {
+  display: flex;
+  gap: 16px;
+  font-size: 48px;
+  font-weight: 900;
+}
+.count-numbers span {
+  background: rgba(255,255,255,0.1);
+  padding: 10px 20px;
+  border-radius: var(--radius-md);
+  min-width: 90px;
+  display: inline-block;
+}
+.count-numbers small {
+  font-size: 14px;
+  text-transform: uppercase;
+  color: rgba(255,255,255,0.6);
+  margin-left: 4px;
+}
+.btn-reminder {
+  background: var(--gold);
+  color: var(--dark-bg);
+  padding: 12px 30px;
+  border-radius: 50px;
+  font-weight: 800;
+  margin-top: 10px;
+}
+
+/* ============================================
+   TOP SECRET LOOP
+   ============================================ */
+.secret-loop-container {
+  overflow: hidden;
+  padding: 40px 0;
+}
+.secret-slide-loop {
+  display: flex;
+  gap: 30px;
+  animation: secretScroll 60s linear infinite;
+  width: max-content;
+}
+@keyframes secretScroll {
+  from { transform: translateX(0); }
+  to { transform: translateX(-50%); }
+}
+.secret-item {
+  position: relative;
+  width: 400px;
+  height: 500px;
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  border: 4px solid var(--gold);
+}
+.secret-video {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+.secret-overlay {
+  position: absolute;
+  inset: 0;
+  background: rgba(0,0,0,0.3);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+}
+.secret-text {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  color: white;
+  text-shadow: 0 4px 10px rgba(0,0,0,0.8);
+}
+.secret-word {
+  font-size: 40px;
+  font-weight: 900;
+  text-transform: uppercase;
+}
+.secret-url {
+  font-size: 24px;
+  font-weight: 700;
+  color: var(--gold);
+}
 .facts-ticker:hover { animation-play-state: paused; }
 @keyframes factsScroll {
   from { transform: translateX(0); }
@@ -1196,6 +1379,49 @@ button { cursor: pointer; font-family: inherit; border: none; background: none; 
 }
 .back-to-top.visible { opacity: 1; transform: translateY(0); pointer-events: all; }
 .back-to-top:hover { background: var(--primary-dark); transform: translateY(-4px); }
+
+/* ============================================
+   QUICK SHOP FLOATING BUTTON
+   ============================================ */
+.quick-shop-btn {
+  position: fixed;
+  bottom: 90px;
+  right: 24px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 14px 22px;
+  background: linear-gradient(135deg, var(--secondary), var(--primary));
+  color: white;
+  font-weight: 800;
+  font-size: 15px;
+  border-radius: 50px;
+  box-shadow: 0 8px 30px rgba(233,30,140,0.4);
+  z-index: 900;
+  opacity: 0;
+  transform: translateX(80px);
+  transition: all 0.4s cubic-bezier(0.4,0,0.2,1);
+  pointer-events: none;
+  text-decoration: none;
+}
+.quick-shop-btn.visible {
+  opacity: 1;
+  transform: translateX(0);
+  pointer-events: all;
+}
+.quick-shop-btn:hover {
+  transform: translateX(0) translateY(-3px);
+  box-shadow: 0 12px 40px rgba(233,30,140,0.55);
+}
+@media (max-width: 768px) {
+  .quick-shop-btn { bottom: 80px; right: 12px; padding: 12px 18px; font-size: 13px; }
+}
+
+/* ============================================
+   VIDEO CLICK HINT
+   ============================================ */
+video { cursor: pointer; }
+video::after { content: ''; }
 
 /* ============================================
    RESPONSIVE

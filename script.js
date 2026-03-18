@@ -40,6 +40,7 @@ document.addEventListener('DOMContentLoaded', () => {
   // ================================================
   const header = document.getElementById('site-header');
   const backToTop = document.getElementById('back-to-top');
+  const quickShopBtn = document.getElementById('quick-shop-btn');
   window.addEventListener('scroll', () => {
     if (window.scrollY > 60) {
       header?.classList.add('scrolled');
@@ -47,6 +48,12 @@ document.addEventListener('DOMContentLoaded', () => {
     } else {
       header?.classList.remove('scrolled');
       backToTop?.classList.remove('visible');
+    }
+    // Show quick shop button after scrolling past hero (~400px)
+    if (window.scrollY > 400) {
+      quickShopBtn?.classList.add('visible');
+    } else {
+      quickShopBtn?.classList.remove('visible');
     }
   }, { passive: true });
   backToTop?.addEventListener('click', () => window.scrollTo({ top: 0, behavior: 'smooth' }));
@@ -81,6 +88,9 @@ document.addEventListener('DOMContentLoaded', () => {
     { name: 'Custom Cap', cat: 'Caps', emoji: '🧢', url: 'pages/shop.html?cat=caps' },
     { name: 'Personalised Scarf', cat: 'Scarves', emoji: '🧣', url: 'pages/shop.html?cat=scarves' },
     { name: 'Balloon Bouquet', cat: 'Balloons', emoji: '🎈', url: 'pages/shop.html?cat=balloons' },
+    { name: 'Dog Gifts', cat: 'Pets', emoji: '🐕', url: 'pages/shop.html?cat=pets' },
+    { name: 'Cat Gifts', cat: 'Pets', emoji: '🐈', url: 'pages/shop.html?cat=pets' },
+    { name: 'Pet Personalised Mugs', cat: 'Pets', emoji: '🐶', url: 'pages/shop.html?cat=pets' },
   ];
 
   function showSuggestions(query) {
@@ -164,8 +174,37 @@ document.addEventListener('DOMContentLoaded', () => {
       14: { name: "Valentine's Day ❤️", desc: "Show your love with a gift better than a card!", shop: "pages/shop.html?occasion=valentines" },
     },
     3: {
+      1: { name: "Peanut Butter Day 🥜", desc: "For the nuttiest person you know!", shop: "#categories" },
+      2: { name: "Read a Book Day 📚", desc: "Perfect for the bookworms!", shop: "#categories" },
+      3: { name: "World Wildlife Day 🦁", desc: "Celebrate the wild! Gift something animal-themed.", shop: "#categories" },
+      4: { name: "Grammar Day 📝", desc: "For those who know their 'your' from 'you're'.", shop: "#categories" },
+      5: { name: "Cheese Doodle Day 🧀", desc: "Cheesy gifts for cheesy people!", shop: "#categories" },
+      6: { name: "Oreo Day 🍪", desc: "Sweet treats and even sweeter gifts.", shop: "#categories" },
+      7: { name: "Cereal Day 🥣", desc: "Start the day right with a fun gift.", shop: "#categories" },
       8: { name: "International Women's Day 👩", desc: "Celebrate the amazing women in your life!", shop: "#occasions" },
+      9: { name: "Meatball Day 🍝", desc: "A tasty day for a tasty gift!", shop: "#categories" },
+      10: { name: "Mario Day 🍄", desc: "It's a-me, Mario! Let's-a-go gift shopping!", shop: "#categories" },
+      11: { name: "Worship Tools Day 🔨", desc: "For the handy people in your life.", shop: "#categories" },
+      12: { name: "Plant a Flower Day 🌻", desc: "Gift something that grows with them.", shop: "#categories" },
+      13: { name: "Jewel Day 💎", desc: "Sparkle more with a special gift.", shop: "#categories" },
+      14: { name: "Pi Day 🥧", desc: "3.14 reasons why you need a gift today!", shop: "#categories" },
+      15: { name: "Everything You Think is Wrong Day ❓", desc: "Everything is right when you give a gift!", shop: "#categories" },
+      16: { name: "Panda Day 🐼", desc: "Cute, cuddly, and perfect for a gift.", shop: "#categories" },
       17: { name: "St. Patrick's Day 🍀", desc: "Lucky them! Find a fun Irish-themed gift.", shop: "#categories" },
+      18: { name: "Biodiesel Day 🚜", desc: "Running on love and unique gifts!", shop: "#categories" },
+      19: { name: "Poultry Day 🍗", desc: "Don't be a chicken – get that gift!", shop: "#categories" },
+      20: { name: "World Happiness Day 😊", desc: "Make someone's day with a surprise gift!", shop: "#categories" },
+      21: { name: "World Poetry Day ✍️", desc: "A gift is worth a thousand poems.", shop: "#categories" },
+      22: { name: "World Water Day 💧", desc: "Celebrate life's essentials with a gift.", shop: "#categories" },
+      23: { name: "National Puppy Day 🐶", desc: "Gifts for your best (furry) friend!", shop: "#categories" },
+      24: { name: "Chocolate Covered Raisin Day 🍇", desc: "Sweet, classic, and giftable!", shop: "#categories" },
+      25: { name: "Waffle Day 🧇", desc: "Crispy, sweet, and better with a gift.", shop: "#categories" },
+      26: { name: "Spinach Day 🍃", desc: "Strong gifts for strong people!", shop: "#categories" },
+      27: { name: "World Theatre Day 🎭", desc: "A gift that deserves a standing ovation.", shop: "#categories" },
+      28: { name: "Weed Day 🌿", desc: "For the plant lovers and gardeners.", shop: "#categories" },
+      29: { name: "Piano Day 🎹", desc: "Hit the right note with a perfect gift.", shop: "#categories" },
+      30: { name: "Doctors' Day 👨‍⚕️", desc: "Celebrate those who care for us.", shop: "#categories" },
+      31: { name: "World Backup Day 💾", desc: "Back up your love with a physical gift!", shop: "#categories" },
     },
     4: {
       1: { name: "April Fools' Day 😂", desc: "Gift them a prank or something funny!", shop: "pages/shop.html?occasion=funny-gifts" },
@@ -202,7 +241,16 @@ document.addEventListener('DOMContentLoaded', () => {
   const monthSpecialDays = {
     1: ["01: New Year's Day 🥂", "02: World Introvert Day 🔇", "03: Fruitcake Toss Day 🎂", "07: Bobblehead Day 🎭", "08: World Typing Day ⌨️", "09: Word Nerd Day 📚", "10: Houseplant Appreciation Day 🌿", "12: Pizza Day 🍕", "15: Martin Luther King Jr. Day ✊", "17: World Snow Day ❄️", "25: Burns Night 🏴󠁧󠁢󠁳󠁣󠁴󠁿"],
     2: ["02: Groundhog Day 🐹", "04: World Cancer Day 🎗️", "07: Rose Day 🌹", "11: Safer Internet Day 💻", "14: Valentine's Day ❤️", "17: Random Acts of Kindness Day 💝", "20: World Day of Social Justice ⚖️"],
-    3: ["01: St. David's Day 🏴󠁧󠁢󠁷󠁬󠁳󠁿", "03: World Wildlife Day 🦁", "08: International Women's Day 👩", "14: Pi Day 🥧", "17: St. Patrick's Day 🍀", "20: World Happiness Day 😊", "22: World Water Day 💧"],
+    3: [
+      "01: Peanut Butter Day 🥜", "02: Read Book Day 📚", "03: Wildlife Day 🦁", "04: Grammar Day 📝",
+      "05: Cheese Doodle Day 🧀", "06: Oreo Day 🍪", "07: Cereal Day 🥣", "08: Womens Day 👩",
+      "09: Meatball Day 🍝", "10: Mario Day 🍄", "11: Worship Tools Day 🔨", "12: Plant Flower Day 🌻",
+      "13: Jewel Day 💎", "14: Pi Day 🥧", "15: Everything You Think is Wrong ❓", "16: Panda Day 🐼",
+      "17: St Patrick's Day 🍀", "18: Biodiesel Day 🚜", "19: Poultry Day 🍗", "20: Happiness Day 😊",
+      "21: Poetry Day ✍️", "22: Water Day 💧", "23: Puppy Day 🐶", "24: Chocolate Raisin Day 🍇",
+      "25: Waffle Day 🧇", "26: Spinach Day 🍃", "27: Theatre Day 🎭", "28: Weed Day 🌿",
+      "29: Piano Day 🎹", "30: Doctors Day 👨‍⚕️", "31: Backup Day 💾"
+    ],
     4: ["01: April Fools' Day 😂", "07: World Health Day 💊", "22: Earth Day 🌍", "23: World Book Day 📖"],
     5: ["01: May Day 🌸", "04: Star Wars Day ⭐", "13: World Cocktail Day 🍸", "15: International Day of Families 👨‍👩‍👧", "18: Museum Day 🎨", "31: World No-Tobacco Day 🚭"],
     6: ["01: Global Day of Parents 👪", "04: National Cheese Day 🧀", "08: World Oceans Day 🌊", "15: Nature Photography Day 📸", "21: World Music Day 🎵"],
@@ -304,22 +352,119 @@ document.addEventListener('DOMContentLoaded', () => {
     "10-09": ["John Lennon", "Guillermo del Toro"],
     "11-11": ["Leonardo DiCaprio", "Demi Moore", "Kurt Vonnegut"],
     "12-13": ["Taylor Swift", "Jamie Foxx", "Steve Buscemi"],
+    "03-01": ["Justin Bieber", "Kesha", "Javier Bardem"],
+    "03-05": ["Eva Mendes", "John Frusciante"],
+    "03-08": ["Freddie Prinze Jr.", "James Van Der Beek"],
+    "03-17": ["Kurt Russell", "Rob Lowe", "Hozier"],
+    "03-25": ["Elton John", "Sarah Jessica Parker"],
+    "03-28": ["Lady Gaga", "Vince Vaughn", "Reba McEntire"],
   };
 
-  document.getElementById('bday-search-btn')?.addEventListener('click', () => {
-    const val = document.getElementById('bday-input')?.value;
+  // Add more generic facts to the ticker
+  const factCards = document.querySelectorAll('.fact-card');
+  const additionalFacts = [
+    "📅 More people are born in August than any other month",
+    "🧁 The smallest birthday cake in the world was only 1 inch tall!",
+    "🎂 The 'Golden Birthday' is when you turn the age of the day you were born",
+    "🌍 Over 19 million people are celebrating their birthday today!",
+    "🎁 The most common birthday gift in the UK is a mug or t-shirt",
+    "🦄 Scotland's national animal is the Unicorn — magical like your gift!",
+    "🎈 Balloons were invented in 1824, just before the first rubber ones",
+  ];
+  const factsTickerElem = document.getElementById('facts-ticker');
+  if (factsTickerElem) {
+    additionalFacts.forEach(fact => {
+      const div = document.createElement('div');
+      div.className = 'fact-card';
+      div.innerHTML = fact;
+      factsTickerElem.appendChild(div);
+    });
+  }
+
+  document.getElementById('bday-search-btn-modern')?.addEventListener('click', () => {
+    const val = document.getElementById('bday-input-date')?.value;
+    const name = document.getElementById('bday-input-name')?.value || 'Friend';
     const result = document.getElementById('bday-result');
     if (!val || !result) return;
     const date = new Date(val);
     const key = `${String(date.getMonth()+1).padStart(2,'0')}-${String(date.getDate()).padStart(2,'0')}`;
     const famous = bdayFamous[key];
+
+    let html = `<div style="text-align:left;">
+      <h4 style="color:var(--secondary);font-size:20px;margin-bottom:10px;">Happy early/belated Birthday, ${name}! 🎂</h4>
+      <p style="font-size:16px;margin-bottom:15px;">You share your special day (${date.toLocaleDateString('en-GB', {day:'numeric',month:'long'})}) with:</p>`;
+
     if (famous) {
-      result.innerHTML = `<h4>🌟 Notable people sharing your birthday (${date.toLocaleDateString('en-GB', {day:'numeric',month:'long'})}):</h4><ul style="list-style:disc;padding-left:24px;margin-top:12px;">${famous.map(n=>`<li>${n}</li>`).join('')}</ul><p style="margin-top:16px;">🎁 <a href="#categories" style="color:var(--gold);font-weight:700;">Find a birthday gift for your person →</a></p>`;
+      html += `<ul style="list-style:none;padding:0;display:flex;flex-wrap:wrap;gap:10px;">
+        ${famous.map(n=>`<li style="background:var(--light-bg);padding:8px 15px;border-radius:50px;font-weight:600;font-size:14px;border:1px solid var(--border);">🌟 ${n}</li>`).join('')}
+      </ul>`;
     } else {
-      result.innerHTML = `<h4>🎂 ${date.toLocaleDateString('en-GB', {day:'numeric',month:'long'})} birthdays!</h4><p style="margin-top:8px;">You share your birthday with millions of amazing people 🌍</p><p style="margin-top:8px;">🎁 <a href="#categories" style="color:var(--gold);font-weight:700;">Find an amazing birthday gift →</a></p>`;
+      html += `<p style="font-style:italic;color:var(--text-muted);">Millions of amazing people around the globe 🌍</p>`;
     }
+
+    html += `<div style="margin-top:20px;padding-top:15px;border-top:1px solid var(--border);">
+      <p><strong>Did you know?</strong> On your birthday, approximately 17.8 million people are also celebrating! 🥳</p>
+      <a href="#categories" style="display:inline-block;margin-top:15px;color:var(--primary);font-weight:800;text-decoration:underline;">Find the perfect gift for ${name} →</a>
+    </div></div>`;
+
+    result.innerHTML = html;
     result.classList.add('show');
   });
+
+  // ================================================
+  // COUNTDOWN LOGIC
+  // ================================================
+  const countdownChoice = document.getElementById('countdown-choice');
+  const daysEl = document.getElementById('count-days');
+  const hoursEl = document.getElementById('count-hours');
+  const minsEl = document.getElementById('count-mins');
+  const secsEl = document.getElementById('count-secs');
+
+  function updateCountdown() {
+    const now = new Date();
+    let targetDate = new Date();
+    const choice = countdownChoice?.value || 'birthday';
+
+    if (choice === 'birthday') {
+      const bdayInput = document.getElementById('bday-input-date')?.value;
+      if (bdayInput) {
+        const bday = new Date(bdayInput);
+        targetDate.setMonth(bday.getMonth());
+        targetDate.setDate(bday.getDate());
+        if (targetDate < now) targetDate.setFullYear(now.getFullYear() + 1);
+        else targetDate.setFullYear(now.getFullYear());
+      } else {
+        // Default to something if no bday input
+        targetDate = new Date(now.getFullYear(), 11, 31); // End of year
+      }
+    } else if (choice === 'easter') {
+      // Easter 2026 (for demo purposes)
+      targetDate = new Date("April 5, 2026 00:00:00");
+    } else if (choice === 'christmas') {
+      targetDate = new Date(now.getFullYear(), 11, 25);
+      if (targetDate < now) targetDate.setFullYear(now.getFullYear() + 1);
+    }
+
+    const diff = targetDate - now;
+    if (diff <= 0) {
+       if (daysEl) daysEl.textContent = "00";
+       return;
+    }
+
+    const d = Math.floor(diff / (1000 * 60 * 60 * 24));
+    const h = Math.floor((diff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+    const m = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));
+    const s = Math.floor((diff % (1000 * 60)) / 1000);
+
+    if (daysEl) daysEl.textContent = String(d).padStart(2, '0');
+    if (hoursEl) hoursEl.textContent = String(h).padStart(2, '0');
+    if (minsEl) minsEl.textContent = String(m).padStart(2, '0');
+    if (secsEl) secsEl.textContent = String(s).padStart(2, '0');
+  }
+
+  setInterval(updateCountdown, 1000);
+  countdownChoice?.addEventListener('change', updateCountdown);
+  updateCountdown();
 
   // ================================================
   // COOKIE NOTICE
@@ -368,6 +513,14 @@ document.addEventListener('DOMContentLoaded', () => {
   }
 
   // ================================================
+  // TOP SECRET SCROLL DUPLICATE
+  // ================================================
+  const secretLoop = document.querySelector('.secret-slide-loop');
+  if (secretLoop) {
+    secretLoop.innerHTML += secretLoop.innerHTML;
+  }
+
+  // ================================================
   // ANIMATE ON SCROLL
   // ================================================
   const observerOpts = { threshold: 0.12, rootMargin: '0px 0px -48px 0px' };
@@ -388,6 +541,28 @@ document.addEventListener('DOMContentLoaded', () => {
     el.style.transitionDelay = `${(i % 4) * 80}ms`;
     el.style.transition = 'opacity 0.5s ease, transform 0.5s ease';
     observer.observe(el);
+  });
+
+  // ================================================
+  // VIDEO SOUND TOGGLE
+  // ================================================
+  const videos = document.querySelectorAll('video:not(.secret-video)');
+  videos.forEach(v => {
+    v.addEventListener('click', () => {
+      v.muted = !v.muted;
+      if (!v.muted) {
+        v.volume = 0.5;
+        console.log("Video unmuted");
+      } else {
+        console.log("Video muted");
+      }
+    });
+
+    // Handle touch for mobile
+    v.addEventListener('touchend', (e) => {
+      e.preventDefault();
+      v.click();
+    });
   });
 
   // ================================================
