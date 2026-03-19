@@ -544,14 +544,16 @@
     </div>
   </section>
 
-  <!-- ======================== BIRTHDAY FACTS ======================== -->
+  <!-- ======================== BIRTHDAY DASHBOARD ======================== -->
   <section class="section section-gradient" id="birthday-facts">
     <div class="container">
       <div class="section-header">
         <p class="section-eyebrow">🎂 Fun Facts</p>
-        <h2 class="section-title light">Birthday Facts & Trivia</h2>
+        <h2 class="section-title light">Birthday Facts &amp; Trivia</h2>
         <p class="section-sub light">Share your birthday with someone amazing?</p>
       </div>
+
+      <!-- SCROLLING FACTS TICKER -->
       <div class="facts-ticker-wrap">
         <div class="facts-ticker" id="facts-ticker">
           <div class="fact-card">🎵 Elvis Presley was born on <strong>8th January 1935</strong></div>
@@ -567,78 +569,225 @@
         </div>
       </div>
 
-      <!-- Birthday Finder Redesign -->
-      <div class="birthday-finder-modern" id="birthday-finder">
-        <div class="bday-modern-card">
-          <div class="bday-header">
-            <h3>Find Out Who Shares Your Birthday</h3>
+      <!-- ====== MAIN DASHBOARD GRID ====== -->
+      <div class="bday-dashboard">
+
+        <!-- ===== COL 1: COUNTDOWN + DOB ===== -->
+        <div class="bday-col bday-col-left">
+
+          <!-- 1 + 2 + 5: Counter with Name & DOB -->
+          <div class="dash-card dash-counter-card">
+            <div class="dash-card-title">⏱ Countdown</div>
+            <div class="counter-who-row">
+              <button class="who-btn active" data-who="yours" id="who-yours">Yours</button>
+              <button class="who-btn" data-who="family" id="who-family">Family</button>
+              <button class="who-btn" data-who="friend" id="who-friend">Friend</button>
+            </div>
+            <div class="counter-name-row">
+              <input type="text" id="counter-person-name" placeholder="Name..." class="dash-input" />
+              <input type="date" id="bday-input-date" class="dash-input" />
+            </div>
+            <div class="counter-next-bday" id="counter-next-bday">
+              Enter a date to see the countdown!
+            </div>
+            <!-- Live Timer -->
+            <div class="countdown-wrap" id="countdown-section" style="margin-top:16px;">
+              <div class="countdown-inner">
+                <div class="count-heading">
+                  <span class="count-days-to">Days To...</span>
+                  <span class="count-active-name" id="count-active-name">Your Birthday</span>
+                </div>
+                <div class="count-timer-row">
+                  <div class="count-numbers" id="main-countdown">
+                    <div class="count-unit"><span id="count-days">00</span><small>days</small></div>
+                    <div class="count-separator">:</div>
+                    <div class="count-unit"><span id="count-hours">00</span><small>h</small></div>
+                    <div class="count-separator">:</div>
+                    <div class="count-unit"><span id="count-mins">00</span><small>m</small></div>
+                    <div class="count-separator">:</div>
+                    <div class="count-unit"><span id="count-secs">00</span><small>s</small></div>
+                  </div>
+                </div>
+                <div class="count-events" id="count-events">
+                  <div class="count-event-card active" data-event="birthday" id="event-birthday">
+                    <div class="count-event-emoji">🎂</div>
+                    <div class="count-event-label">Birthday</div>
+                    <div class="count-event-value" id="preview-birthday">...</div>
+                  </div>
+                  <div class="count-event-card" data-event="easter" id="event-easter">
+                    <div class="count-event-emoji">🐣</div>
+                    <div class="count-event-label">Easter</div>
+                    <div class="count-event-value" id="preview-easter">...</div>
+                  </div>
+                  <div class="count-event-card" data-event="christmas" id="event-christmas">
+                    <div class="count-event-emoji">🎄</div>
+                    <div class="count-event-label">Christmas</div>
+                    <div class="count-event-value" id="preview-christmas">...</div>
+                  </div>
+                </div>
+                <div class="count-reminder-row">
+                  <button class="btn-reminder" id="remind-btn">🔔 Set Reminder</button>
+                  <div class="count-reminder-msg" id="reminder-msg"></div>
+                </div>
+              </div>
+            </div>
+
+            <!-- 6: Email/Text request -->
+            <div class="reminder-request-form">
+              <p class="remind-form-label">📨 Get reminded by email or text:</p>
+              <div class="remind-form-row">
+                <input type="email" id="remind-email" placeholder="Email address" class="dash-input" />
+                <input type="tel" id="remind-phone" placeholder="Phone (optional)" class="dash-input" />
+              </div>
+              <button class="btn-remind-submit" id="remind-submit-btn">✅ Request Reminder</button>
+              <div class="remind-submit-msg" id="remind-submit-msg"></div>
+            </div>
           </div>
-          <div class="bday-input-group">
-            <input type="text" id="bday-input-name" placeholder="Name" />
-            <input type="date" id="bday-input-date" />
-            <button id="bday-search-btn-modern">🔍</button>
+
+          <!-- 3 + 4: Global Public Holidays -->
+          <div class="dash-card dash-holidays-card">
+            <div class="dash-card-title">🌍 Global Public Holidays</div>
+            <div class="holidays-list" id="holidays-list">
+              <!-- JS populated -->
+            </div>
+            <div class="holiday-facts-panel" id="holiday-facts-panel" style="display:none;">
+              <div class="holiday-facts-title" id="holiday-facts-title"></div>
+              <p class="holiday-facts-text" id="holiday-facts-text"></p>
+              <button class="holiday-close-btn" id="holiday-close-btn">✕ Close</button>
+            </div>
           </div>
-          <div class="bday-result-area" id="bday-result">
-            <!-- Results like the image -->
+        </div>
+
+        <!-- ===== COL 2: BIRTHDAY FINDER + BORN TODAY ===== -->
+        <div class="bday-col bday-col-right">
+
+          <!-- 10: HOTLINE -->
+          <div class="dash-card dash-hotline-card">
+            <div class="hotline-inner">
+              <div class="hotline-icon">☎️</div>
+              <div class="hotline-text">
+                <strong>Birthday HOTLINE</strong>
+                <span>Emergency same-day delivery — UK only!</span>
+                <a href="tel:+441234567890" class="hotline-number">Call Now</a>
+              </div>
+            </div>
           </div>
+
+          <!-- 11: E-Messages -->
+          <div class="dash-card dash-emessage-card">
+            <div class="emessage-header">
+              <span class="emessage-icon">✉️</span>
+              <div>
+                <strong>E-Messages</strong>
+                <span class="emessage-tag">SPECIAL OFFER</span>
+              </div>
+            </div>
+            <p class="emessage-desc">Send a personalised e-message to your loved ones.<br/><strong>First 3 free every month!</strong></p>
+            <button class="btn-emessage" id="btn-emessage">Send an E-Message →</button>
+          </div>
+
+          <!-- 8: Find out who shares your birthday — LIST -->
+          <div class="dash-card dash-finder-card">
+            <div class="dash-card-title">🌟 Find Out Who Shares Your Birthday</div>
+            <div class="bday-input-group">
+              <input type="text" id="bday-input-name" placeholder="Your name" class="dash-input" />
+              <input type="date" id="bday-search-date" class="dash-input" />
+              <button id="bday-search-btn-modern" class="bday-search-btn">🔍 Search</button>
+            </div>
+            <div class="bday-result-area" id="bday-result"></div>
+          </div>
+
+          <!-- 9: People born TODAY -->
+          <div class="dash-card dash-born-today-card">
+            <div class="dash-card-title">🎉 People Born Today</div>
+            <ul class="born-today-list" id="born-today-list">
+              <!-- JS populated -->
+            </ul>
+            <p class="born-today-sub" id="born-today-sub"></p>
+          </div>
+
         </div>
       </div>
+    </div>
+  </section>
+  <!-- ======================== QUICK SHOPPING LINKS ======================== -->
+  <section class="section quick-shop-section" id="quick-links">
+    <div class="container">
+      <div class="section-header">
+        <p class="section-eyebrow">🛍️ Go Straight To</p>
+        <h2 class="section-title">Shop By Occasion</h2>
+        <p class="section-sub">No scrolling — tap &amp; go straight to what you need</p>
+      </div>
+      <div class="quick-links-grid">
+        <a href="pages/shop.html?occasion=birthday" class="quick-link-tile" id="ql-birthday">
+          <span class="ql-emoji">🎂</span><span class="ql-label">Birthday</span>
+        </a>
+        <a href="pages/shop.html?occasion=anniversary" class="quick-link-tile" id="ql-anniversary">
+          <span class="ql-emoji">💍</span><span class="ql-label">Anniversary</span>
+        </a>
+        <a href="pages/shop.html?occasion=christmas" class="quick-link-tile" id="ql-christmas">
+          <span class="ql-emoji">🎄</span><span class="ql-label">Christmas</span>
+        </a>
+        <a href="pages/shop.html?occasion=valentines" class="quick-link-tile" id="ql-valentines">
+          <span class="ql-emoji">❤️</span><span class="ql-label">Valentine's</span>
+        </a>
+        <a href="pages/shop.html?occasion=wedding" class="quick-link-tile" id="ql-wedding">
+          <span class="ql-emoji">💒</span><span class="ql-label">Wedding</span>
+        </a>
+        <a href="pages/shop.html?occasion=new-baby" class="quick-link-tile" id="ql-newbaby">
+          <span class="ql-emoji">👶</span><span class="ql-label">New Baby</span>
+        </a>
+        <a href="pages/shop.html?occasion=mothers-day" class="quick-link-tile" id="ql-mothers">
+          <span class="ql-emoji">🌸</span><span class="ql-label">Mother's Day</span>
+        </a>
+        <a href="pages/shop.html?occasion=fathers-day" class="quick-link-tile" id="ql-fathers">
+          <span class="ql-emoji">👔</span><span class="ql-label">Father's Day</span>
+        </a>
+        <a href="pages/shop.html?occasion=easter" class="quick-link-tile" id="ql-easter">
+          <span class="ql-emoji">🐣</span><span class="ql-label">Easter</span>
+        </a>
+        <a href="pages/shop.html?occasion=graduation" class="quick-link-tile" id="ql-graduation">
+          <span class="ql-emoji">🎓</span><span class="ql-label">Graduation</span>
+        </a>
+        <a href="pages/shop.html?occasion=retirement" class="quick-link-tile" id="ql-retirement">
+          <span class="ql-emoji">🏖️</span><span class="ql-label">Retirement</span>
+        </a>
+        <a href="pages/shop.html?occasion=funny-gifts" class="quick-link-tile ql-featured" id="ql-funny">
+          <span class="ql-emoji">😂</span><span class="ql-label">Funny Gifts</span>
+        </a>
+      </div>
 
-      <!-- COUNTDOWN SECTION -->
-      <div class="countdown-wrap" id="countdown-section">
-        <div class="countdown-inner">
-          <div class="count-heading">
-            <span class="count-days-to">Days To...</span>
-            <span class="count-active-name" id="count-active-name">Your Birthday</span>
-          </div>
-
-          <div class="count-timer-row">
-            <div class="count-numbers" id="main-countdown">
-              <div class="count-unit">
-                <span id="count-days">00</span>
-                <small>days</small>
-              </div>
-              <div class="count-separator">:</div>
-              <div class="count-unit">
-                <span id="count-hours">00</span>
-                <small>h</small>
-              </div>
-              <div class="count-separator">:</div>
-              <div class="count-unit">
-                <span id="count-mins">00</span>
-                <small>m</small>
-              </div>
-              <div class="count-separator">:</div>
-              <div class="count-unit">
-                <span id="count-secs">00</span>
-                <small>s</small>
-              </div>
-            </div>
-          </div>
-
-          <div class="count-events" id="count-events">
-            <div class="count-event-card active" data-event="birthday" id="event-birthday">
-              <div class="count-event-emoji">🎂</div>
-              <div class="count-event-label">Your Birthday</div>
-              <div class="count-event-value" id="preview-birthday">...</div>
-            </div>
-            <div class="count-event-card" data-event="easter" id="event-easter">
-              <div class="count-event-emoji">🐣</div>
-              <div class="count-event-label">Easter</div>
-              <div class="count-event-value" id="preview-easter">...</div>
-            </div>
-            <div class="count-event-card" data-event="christmas" id="event-christmas">
-              <div class="count-event-emoji">🎄</div>
-              <div class="count-event-label">Christmas</div>
-              <div class="count-event-value" id="preview-christmas">...</div>
-            </div>
-          </div>
-
-          <div class="count-reminder-row">
-            <button class="btn-reminder" id="remind-btn">🔔 Set Reminder</button>
-            <div class="count-reminder-msg" id="reminder-msg"></div>
-          </div>
-        </div>
+      <div class="section-header" style="margin-top:48px;">
+        <h2 class="section-title">Shop By Product</h2>
+      </div>
+      <div class="quick-links-grid quick-links-products">
+        <a href="pages/shop.html?cat=mugs" class="quick-link-tile ql-product" id="ql-mugs">
+          <span class="ql-emoji">☕</span><span class="ql-label">Mugs</span>
+        </a>
+        <a href="pages/shop.html?cat=tshirts" class="quick-link-tile ql-product" id="ql-tshirts">
+          <span class="ql-emoji">👕</span><span class="ql-label">T-Shirts</span>
+        </a>
+        <a href="pages/shop.html?cat=cushions" class="quick-link-tile ql-product" id="ql-cushions">
+          <span class="ql-emoji">🛋️</span><span class="ql-label">Cushions</span>
+        </a>
+        <a href="pages/shop.html?cat=keyrings" class="quick-link-tile ql-product" id="ql-keyrings">
+          <span class="ql-emoji">🔑</span><span class="ql-label">Keyrings</span>
+        </a>
+        <a href="pages/shop.html?cat=caps" class="quick-link-tile ql-product" id="ql-caps">
+          <span class="ql-emoji">🧢</span><span class="ql-label">Caps</span>
+        </a>
+        <a href="pages/shop.html?cat=balloons" class="quick-link-tile ql-product" id="ql-balloons">
+          <span class="ql-emoji">🎈</span><span class="ql-label">Balloons</span>
+        </a>
+        <a href="pages/shop.html?cat=pets" class="quick-link-tile ql-product" id="ql-pets-link">
+          <span class="ql-emoji">🐾</span><span class="ql-label">Pets</span>
+        </a>
+        <a href="pages/shop.html?cat=scarves" class="quick-link-tile ql-product" id="ql-scarves">
+          <span class="ql-emoji">🧣</span><span class="ql-label">Scarves</span>
+        </a>
+        <a href="pages/shop.html" class="quick-link-tile ql-product ql-all" id="ql-all">
+          <span class="ql-emoji">🛒</span><span class="ql-label">All Products</span>
+        </a>
       </div>
     </div>
   </section>

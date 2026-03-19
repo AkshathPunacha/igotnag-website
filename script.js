@@ -407,9 +407,209 @@ document.addEventListener('DOMContentLoaded', () => {
       <a href="#categories" style="display:inline-block;margin-top:15px;color:var(--primary);font-weight:800;text-decoration:underline;">Find the perfect gift for ${name} →</a>
     </div></div>`;
 
-    result.innerHTML = html;
+      result.innerHTML = html;
     result.classList.add('show');
   });
+
+  // ================================================
+  // BIRTHDAY SEARCH (new dashboard field)
+  // ================================================
+  document.getElementById('bday-search-btn-modern')?.addEventListener('click', () => {
+    const dateInput = document.getElementById('bday-search-date') || document.getElementById('bday-input-date');
+    const val = dateInput?.value;
+    const name = document.getElementById('bday-input-name')?.value || 'Friend';
+    const result = document.getElementById('bday-result');
+    if (!val || !result) return;
+    const date = new Date(val);
+    const key = `${String(date.getMonth()+1).padStart(2,'0')}-${String(date.getDate()).padStart(2,'0')}`;
+    const famous = bdayFamous[key];
+
+    let html = `<div style="padding:10px 0;">
+      <p style="font-weight:800;font-size:15px;margin-bottom:10px;color:white;">🎂 ${name} shares ${date.toLocaleDateString('en-GB', {day:'numeric',month:'long'})} with:</p>`;
+    if (famous) {
+      html += `<ul style="list-style:none;padding:0;display:flex;flex-direction:column;gap:6px;">
+        ${famous.map(n=>`<li style="display:flex;align-items:center;gap:8px;font-size:14px;">⭐ <span style="font-weight:700;color:var(--gold);">${n}</span></li>`).join('')}
+      </ul>`;
+    } else {
+      html += `<p style="font-size:14px;color:rgba(255,255,255,0.7);">🌍 Millions of amazing people around the globe share this day!</p>`;
+    }
+    html += `<a href="#categories" style="display:inline-block;margin-top:12px;padding:8px 18px;background:var(--primary);color:white;border-radius:50px;font-weight:800;font-size:13px;">Find a gift for ${name} →</a></div>`;
+    result.innerHTML = html;
+  });
+
+  // ================================================
+  // WHO BTN + DOB PREVIEW
+  // ================================================
+  document.querySelectorAll('.who-btn').forEach(btn => {
+    btn.addEventListener('click', () => {
+      document.querySelectorAll('.who-btn').forEach(b => b.classList.remove('active'));
+      btn.classList.add('active');
+    });
+  });
+
+  document.getElementById('bday-input-date')?.addEventListener('change', (e) => {
+    const val = e.target.value;
+    const nameEl = document.getElementById('counter-person-name');
+    const previewEl = document.getElementById('counter-next-bday');
+    if (!val || !previewEl) return;
+    const bday = new Date(val);
+    const now = new Date();
+    const thisYear = new Date(now.getFullYear(), bday.getMonth(), bday.getDate());
+    const next = thisYear < now ? new Date(now.getFullYear() + 1, bday.getMonth(), bday.getDate()) : thisYear;
+    const days = Math.ceil((next - now) / 86400000);
+    const who = nameEl?.value || 'their';
+    previewEl.textContent = `On ${next.toLocaleDateString('en-GB', {day:'numeric', month:'long'})}, ${who.trim() || 'they'} will be turning ${next.getFullYear() - bday.getFullYear()} 🎂 — ${days} days to go!`;
+  });
+
+  // ================================================
+  // EMAIL/TEXT REMINDER FORM
+  // ================================================
+  document.getElementById('remind-submit-btn')?.addEventListener('click', () => {
+    const email = document.getElementById('remind-email')?.value;
+    const phone = document.getElementById('remind-phone')?.value;
+    const msg = document.getElementById('remind-submit-msg');
+    if (!email && !phone) {
+      if (msg) msg.textContent = '⚠️ Please enter an email or phone number.';
+      setTimeout(() => { if (msg) msg.textContent = ''; }, 3000);
+      return;
+    }
+    if (msg) msg.textContent = '✅ Reminder requested! We\'ll notify you before the big day 🎁';
+    if (document.getElementById('remind-email')) document.getElementById('remind-email').value = '';
+    if (document.getElementById('remind-phone')) document.getElementById('remind-phone').value = '';
+    setTimeout(() => { if (msg) msg.textContent = ''; }, 5000);
+  });
+
+  // ================================================
+  // E-MESSAGE BUTTON
+  // ================================================
+  document.getElementById('btn-emessage')?.addEventListener('click', () => {
+    const months = (parseInt(localStorage.getItem('emessage_count_month') || '0'));
+    // Reset if new month
+    const savedMonth = localStorage.getItem('emessage_month');
+    const currMonth = new Date().getMonth();
+    let count = savedMonth == currMonth ? months : 0;
+    if (count < 3) {
+      count++;
+      localStorage.setItem('emessage_count_month', count);
+      localStorage.setItem('emessage_month', currMonth);
+      alert(`✉️ E-Message ${count}/3 this month!\n\nYou have ${3 - count} free message${3-count===1?'':'s'} remaining this month.\n\n(Full e-message composer coming soon!)`);
+    } else {
+      alert('💎 You\'ve used your 3 free messages this month.\n\nUpgrade to premium for unlimited e-messages!');
+    }
+  });
+
+  // ================================================
+  // GLOBAL HOLIDAYS LIST (items 3 + 4)
+  // ================================================
+  const globalHolidays = [
+    // ── JANUARY ──
+    { month: 'January',   date: 'Jan 1',  name: "New Year's Day",            country: '🌍 Global',              facts: "New Year's Day is celebrated in 195 countries. The first celebration dates back 4,000 years to ancient Babylon. Times Square's ball drop has run every year since 1907!" },
+
+    // ── FEBRUARY ──
+    { month: 'February',  date: 'Feb 14', name: "Valentine's Day",            country: '🌍 Global',              facts: "Over 1 billion Valentine's cards are sent each year — the 2nd largest card-sending holiday. The first recorded Valentine message was sent in 1415 by Charles, Duke of Orléans." },
+
+    // ── MARCH ──
+    { month: 'March',     date: 'Mar 17', name: "St. Patrick's Day",          country: '🇮🇪 Ireland',            facts: "A feast day since the 17th century. Chicago dyes its river green every year! About 70 countries celebrate it worldwide — making it one of the most global cultural festivals." },
+    { month: 'March',     date: 'Mar 20', name: "Nowruz (Persian New Year)",  country: '🇮🇷 Iran / 🇦🇫 Afghanistan / Central Asia', facts: "Nowruz marks the spring equinox and has been celebrated for over 3,000 years. The word means 'New Day' in Persian. UNESCO lists it as an Intangible Cultural Heritage of Humanity." },
+    { month: 'March',     date: 'Mar 25', name: "Greek Independence Day",     country: '🇬🇷 Greece',             facts: "Marks the start of the Greek War of Independence against the Ottoman Empire in 1821. Celebrated with military parades in Athens and across Greek communities worldwide." },
+    { month: 'March',     date: 'Mar (varies)', name: "Holi",                 country: '🇮🇳 India / 🇳🇵 Nepal',  facts: "Holi, the 'Festival of Colours', celebrates the arrival of spring and the triumph of good over evil. It's based on the Hindu legend of Holika. Over a billion people celebrate it worldwide." },
+
+    // ── APRIL ──
+    { month: 'April',     date: 'Apr (varies)', name: "Good Friday",          country: '🇬🇧 UK / 🇦🇺 Australia / 🇿🇦 South Africa', facts: "Good Friday marks the crucifixion of Jesus Christ. It's a public holiday in 111 countries — one of the most widely observed religious days. Hot cross buns are a traditional Good Friday food in the UK." },
+    { month: 'April',     date: 'Apr (varies)', name: "Easter Monday",        country: '🌍 UK, Germany, EU, Australia', facts: "Easter Monday follows Easter Sunday and is a public holiday in many Christian nations. In some countries it's celebrated with egg rolling, egg hunts and parades. The Easter egg tradition dates to medieval Europe." },
+    { month: 'April',     date: 'Apr 25', name: "ANZAC Day",                  country: '🇦🇺 Australia / 🇳🇿 New Zealand', facts: "ANZAC Day commemorates Australian and New Zealand soldiers who served in World War I at Gallipoli (1915). Dawn services are held nationwide. The word ANZAC stands for Australian and New Zealand Army Corps." },
+    { month: 'April',     date: 'Apr 27', name: "King's Day",                 country: '🇳🇱 Netherlands',       facts: "King's Day (Koningsdag) is one of the world's greatest street parties! Over 800,000 people flood Amsterdam's canals. Everyone wears orange to honour the Royal House of Orange-Nassau." },
+
+    // ── MAY ──
+    { month: 'May',       date: 'May 1',  name: "Labour Day / International Workers' Day", country: '🌍 80+ countries', facts: "International Workers' Day commemorates the 1886 Haymarket affair in Chicago. Over 80 countries make it a public holiday. The tradition of May Day dancing around a Maypole dates to 14th century Europe." },
+    { month: 'May',       date: 'May 1',  name: "Golden Week – Showa Day",    country: '🇯🇵 Japan',              facts: "Showa Day opens Japan's 'Golden Week' — a cluster of four national holidays. It honours Emperor Hirohito (Showa era). Most Japanese businesses close for the full week; it is the country's biggest travel period." },
+    { month: 'May',       date: 'May 5',  name: "Cinco de Mayo",              country: '🇲🇽 Mexico',             facts: "Cinco de Mayo marks Mexico's victory over France at the Battle of Puebla in 1862. Despite being a minor holiday in Mexico, it is hugely celebrated in the USA as a celebration of Mexican culture and heritage." },
+    { month: 'May',       date: 'May 9',  name: "Europe Day",                 country: '🇱🇺 Luxembourg / 🇪🇺 EU', facts: "Europe Day marks the Schuman Declaration of 9 May 1950, which led to the creation of the European Union. It celebrates peace and unity across Europe. It is a public holiday in Luxembourg and EU institutions." },
+    { month: 'May',       date: 'May (varies)', name: "Ascension Day",        country: '🇫🇷 France / 🇩🇪 Germany / 🇮🇩 Indonesia', facts: "Ascension Day marks the ascension of Jesus Christ into Heaven, 40 days after Easter. It is a public holiday in over 20 countries. In Germany, it is also celebrated as Father's Day (Vatertag)." },
+    { month: 'May',       date: 'May (varies)', name: "Whit Monday / Pentecost Monday", country: '🇫🇷 France / 🇧🇪 Belgium / 🇦🇹 Austria', facts: "Whit Monday marks the descent of the Holy Spirit onto the apostles, 50 days after Easter. It is a public holiday across much of Europe. Many countries use the weekend for large outdoor festivals." },
+
+    // ── JUNE ──
+    { month: 'June',      date: 'Jun 21', name: "Summer Solstice",            country: '🌍 Global',              facts: "The longest day of the year! Stonehenge perfectly aligns with the sunrise. Ancient cultures built calendars around it. Thousands still gather at Stonehenge each year to celebrate." },
+
+    // ── JULY ──
+    { month: 'July',      date: 'Jul 4',  name: "US Independence Day",        country: '🇺🇸 USA',               facts: "The Declaration of Independence was signed on July 4, 1776. Over 14,000 fireworks displays light up the US. About 150 million hot dogs are eaten on this day alone!" },
+    { month: 'July',      date: 'Jul 14', name: "Bastille Day",               country: '🇫🇷 France',            facts: "France's national day marks the storming of the Bastille prison in 1789 — a symbol of the French Revolution. The Champs-Élysées military parade is one of Europe's oldest and largest." },
+
+    // ── AUGUST ──
+    { month: 'August',    date: 'Aug 15', name: "Indian Independence Day",    country: '🇮🇳 India',             facts: "India gained independence from Britain in 1947. The Prime Minister hoists the flag at the Red Fort in Delhi. It is celebrated across Indian communities worldwide with cultural events and fireworks." },
+
+    // ── OCTOBER ──
+    { month: 'October',   date: 'Oct 31', name: "Halloween",                  country: '🇺🇸🇬🇧 USA / UK',       facts: "Halloween originates from the Celtic festival of Samhain. Americans spend over $10 billion annually. The word 'witch' comes from 'wicce' (Old English for wise woman). Jack-o-lanterns were first made from turnips!" },
+
+    // ── NOVEMBER ──
+    { month: 'November',  date: 'Nov 5',  name: "Bonfire Night",              country: '🇬🇧 UK',                facts: "Guy Fawkes Night commemorates the failed Gunpowder Plot of 1605. The effigy tradition began in 1606. Around 55 firework displays happen across the UK and it remains one of Britain's most beloved evenings." },
+    { month: 'November',  date: 'Nov 11', name: "Remembrance Day",            country: '🇬🇧🌍 Commonwealth',    facts: "Remembrance Day marks the armistice that ended World War I at the 11th hour of the 11th day of the 11th month in 1918. The red poppy is the symbol of remembrance, inspired by Flanders Fields." },
+
+    // ── DECEMBER ──
+    { month: 'December',  date: 'Dec 25', name: "Christmas Day",              country: '🌍 Global',              facts: "Christmas is celebrated by over 2 billion people worldwide. Santa's origins trace to Saint Nicholas of 4th century Turkey. The world's tallest Christmas tree was 221 ft tall in Seattle (1950)." },
+    { month: 'December',  date: 'Dec 26', name: "Boxing Day",                 country: '🇬🇧 Commonwealth',      facts: "Boxing Day originated when Victorian servants received 'Christmas boxes' from their employers. It's now a massive shopping day and major sports event day across the Commonwealth." },
+    { month: 'December',  date: 'Dec 31', name: "New Year's Eve",             country: '🌍 Global',              facts: "Sydney's fireworks are seen by over 1 billion TV viewers each year. The earliest New Year celebration was in Mesopotamia around 2000 BC. 'Auld Lang Syne' was written by Robert Burns in 1788." },
+  ];
+
+  const holidaysList = document.getElementById('holidays-list');
+  const holidayFactsPanel = document.getElementById('holiday-facts-panel');
+  const holidayFactsTitle = document.getElementById('holiday-facts-title');
+  const holidayFactsText = document.getElementById('holiday-facts-text');
+
+  if (holidaysList) {
+    let lastMonth = '';
+    globalHolidays.forEach((h) => {
+      // Insert a month header when month changes
+      if (h.month && h.month !== lastMonth) {
+        lastMonth = h.month;
+        const header = document.createElement('div');
+        header.className = 'holiday-month-header';
+        header.textContent = `🗓️ ${h.month}`;
+        holidaysList.appendChild(header);
+      }
+      const item = document.createElement('div');
+      item.className = 'holiday-item';
+      item.innerHTML = `<span class="holiday-date">${h.date}</span><span class="holiday-name">${h.name}</span><span class="holiday-country">${h.country}</span>`;
+      item.addEventListener('click', () => {
+        if (holidayFactsTitle) holidayFactsTitle.textContent = `${h.name} — ${h.date}`;
+        if (holidayFactsText) holidayFactsText.textContent = h.facts;
+        if (holidayFactsPanel) holidayFactsPanel.style.display = 'block';
+        holidaysList.querySelectorAll('.holiday-item').forEach(el => el.style.background = '');
+        item.style.background = 'rgba(245,200,66,0.12)';
+      });
+      holidaysList.appendChild(item);
+    });
+  }
+  document.getElementById('holiday-close-btn')?.addEventListener('click', () => {
+    if (holidayFactsPanel) holidayFactsPanel.style.display = 'none';
+    holidaysList?.querySelectorAll('.holiday-item').forEach(el => el.style.background = '');
+  });
+
+  // ================================================
+  // PEOPLE BORN TODAY LIST (item 9)
+  // ================================================
+  (function populateBornToday() {
+    const now = new Date();
+    const todayKey = `${String(now.getMonth()+1).padStart(2,'0')}-${String(now.getDate()).padStart(2,'0')}`;
+    const bornList = document.getElementById('born-today-list');
+    const bornSub = document.getElementById('born-today-sub');
+    const todayFamous = bdayFamous[todayKey];
+    if (bornList) {
+      if (todayFamous && todayFamous.length) {
+        todayFamous.forEach(name => {
+          const li = document.createElement('li');
+          li.innerHTML = `<span class="born-name">🌟 ${name}</span>`;
+          bornList.appendChild(li);
+        });
+        if (bornSub) bornSub.textContent = `${todayFamous.length} famous ${todayFamous.length === 1 ? 'person' : 'people'} share today's date.`;
+      } else {
+        const li = document.createElement('li');
+        li.innerHTML = `<span class="born-name" style="color:rgba(255,255,255,0.6);">🌍 Millions of amazing people born today — you could be next!</span>`;
+        bornList.appendChild(li);
+        if (bornSub) bornSub.textContent = `Today is ${now.toLocaleDateString('en-GB', {day:'numeric', month:'long'})}.`;
+      }
+    }
+  })();
 
   // ================================================
   // COUNTDOWN LOGIC — card-based multi-event
